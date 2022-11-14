@@ -1,0 +1,22 @@
+<header class="masthead">
+  <div class="wrap">
+    {% if site.logo %}
+      <a href="{{ '/' | relative_url }}" class="site-logo" rel="home" title="{{ site.title }}">
+        <img src="{{ site.logo | relative_url }}" class="site-logo-img animated fadeInDown" alt="{{ site.title }}">
+      </a>
+    {% endif %}
+    {% assign page_image = page.image.path | default: page.image %}
+    {% unless page_image %}
+      <div class="site-title-wrapper">
+      {% if page.url == '/' %}
+        <!--<h1 class="site-title animated fadeInDown"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>-->
+          <div class="site-title animated fadeInDown"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></div>
+          <p class="site-description animated fadeInDown" itemprop="description">{{ site.description }}</p>
+      {% else %}
+          <div class="site-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></div>
+          <p class="site-description" itemprop="description">{{ site.description }}</p>
+      {% endif %}
+      </div>
+    {% endunless %}
+  </div>
+</header><!-- /.masthead -->
