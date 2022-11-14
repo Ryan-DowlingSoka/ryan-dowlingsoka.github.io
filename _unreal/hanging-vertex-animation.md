@@ -5,11 +5,7 @@ date: 2022-11-13
 
 >This version was originally posted on Art Station, but has moved here.
 
-[
-
-{% video ../../images/hanging-vertex-animation/at_hivebusters.mp4 %}
-
-](../../images/hanging-vertex-animation/RampartConcept_-_Unreal_Editor_2020-12-23_21-06-26_Copy_10.mp4)
+<video width="100%" loop autoplay controls muted><source src="../../images/hanging-vertex-animation/at_hivebusters.mp4" type="video/mp4"></video>
 
 *A small segment of the Gears 5: Hivebusters DLC using the techniques in this blog post.*
 
