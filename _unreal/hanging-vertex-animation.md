@@ -3,11 +3,14 @@ title: "Hanging Vertex Animation"
 date: 2022-11-13
 ---
 
->This version was originally posted on Art Station, but has moved here.
+> Learn how to use vertex animation to make pendulum motion for hanging environmental props or vegetation.
 
 <video width="100%" loop autoplay controls muted><source src="../../images/hanging-vertex-animation/at_hivebusters.mp4" type="video/mp4"></video>
 
 *A small segment of the Gears 5: Hivebusters DLC using the techniques in this blog post.*
+
+
+{% include toc %}
 
 # Hanging from a thread.
 
@@ -15,13 +18,12 @@ This technique can be used for anything that needs to hang like a rope with a we
 
 **Anecdote time**:
 
-While working on Gears 4 I was tasked with intensifying all of the tree, bush, and vine animations in our game so that they looked better in hurricane level winds. This work I basically redid in Gears 5, and has mostly survived into Hivebusters. What this did though, was teach me all the ways you can make things look like their moving in the wind, and I learned a very valuable lesson from this.
+> While working on Gears 4 I was tasked with intensifying all of the tree, bush, and vine animations in our game so that they looked better in hurricane level winds. This work I basically redid in Gears 5, and has mostly survived into Hivebusters. What this did though, was teach me all the ways you can make things look like their moving in the wind, and I learned a very valuable lesson from this.
 
 💡 **Trees blowing in the wind look a lot like hanging pendulums.**
 {: .notice--accent}
 
-
-Why this is might be a bit counter-intuitive. In a pendulum: the return to the center is driven by gravity, as the pendulum moves through its arc, it returns to the center because gravity is always pulling down. This slows the speed of the pendulum, stopping its forward velocity and reversing it.
+Why might be a bit counter-intuitive. In a pendulum: the return to the center is driven by gravity, as the pendulum moves through its arc, it returns to the center because gravity is always pulling down. This slows the speed of the pendulum, stopping its forward velocity and reversing it.
 
 For a tree, standing straight up, but getting blown over in the wind: what returns it to the center? Elasticity. The tree has grown straight up and has built in material elasticity that keeps it from falling over. When a great buffet of wind blows forward, it might bend the tree over, but unless the wind is continuous or strong and consistent enough to overcome the elasticity and replace it with plasticity, the tree will return to its upright shape.
 
