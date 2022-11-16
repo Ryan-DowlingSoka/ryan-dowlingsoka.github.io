@@ -10,7 +10,7 @@
 /* Colors */
 $base-color: #dedede !default;
 $text-color: #bebebe !default;
-$accent-color: #00adb5 !default;
+$accent-color: #56aaae !default;
 $faded-text-color: #8a8a8a !default;
 $nav-color: #aeaeae !default;
 $background-color: #252a34 !default;
@@ -18,11 +18,11 @@ $nav-background-color: mix(#000, $background-color, 30%) !default;
 $code-background-color: mix(#000, $background-color, 15%) !default;
 $border-color: tint($base-color, 80%) !default;
 
-$primary-color: white !default;
+$primary-color: rgb(85, 85, 85) !default;
 $success-color: rgb(48, 209, 88) !default;
-$warning-color: rgb(255, 214, 10) !default;
-$danger-color: rgb(255, 69, 58) !default;
-$info-color: rgb(100, 210, 255) !default;
+$warning-color: rgb(255, 239, 157) !default;
+$danger-color: rgb(253, 103, 95) !default;
+$info-color: rgb(153, 195, 211) !default;
 
 $base00: #263238;
 $base01: #2e3c43;

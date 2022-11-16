@@ -20,10 +20,7 @@ categories: about
     padding: 0 0em 0 1em;
 ">
 
-[📧ryan@dowlingsoka.com](mailto:ryan@dowlingsoka.com)  
-[🐦@RyanDowlingSoka](https://twitter.com/RyanDowlingSoka)  
-[🔗linked.in](https://www.linkedin.com/in/ryandowlingsoka/)  
-[🐘gamedev.place](https://mastodon.gamedev.place/@ryan_dowlingsoka)  
+{% include socials.md %}
 
 </div>
 

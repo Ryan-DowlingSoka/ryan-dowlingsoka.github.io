@@ -5,7 +5,9 @@ date: 2022-11-13
 
 > Learn how to use vertex animation to make pendulum motion for hanging environmental props or vegetation.
 
-<video width="100%" loop autoplay controls muted><source src="../../images/hanging-vertex-animation/at_hivebusters.mp4" type="video/mp4"></video>
+<video width="100%" loop autoplay controls muted>
+    <source src="../../images/hanging-vertex-animation/at_hivebusters.mp4" type="video/mp4">
+</video>
 
 *A small segment of the Gears 5: Hivebusters DLC using the techniques in this blog post.*
 
@@ -21,7 +23,7 @@ This technique can be used for anything that needs to hang like a rope with a we
 > While working on Gears 4 I was tasked with intensifying all of the tree, bush, and vine animations in our game so that they looked better in hurricane level winds. This work I basically redid in Gears 5, and has mostly survived into Hivebusters. What this did though, was teach me all the ways you can make things look like their moving in the wind, and I learned a very valuable lesson from this.
 
 💡 **Trees blowing in the wind look a lot like hanging pendulums.**
-{: .notice--accent}
+{: .notice--primary}
 
 Why might be a bit counter-intuitive. In a pendulum: the return to the center is driven by gravity, as the pendulum moves through its arc, it returns to the center because gravity is always pulling down. This slows the speed of the pendulum, stopping its forward velocity and reversing it.
 
@@ -39,7 +41,9 @@ The behavior of a pendulum seems complex but it can be broken down into a few pa
 
 First there is the primary rotation. This is the behavior of the pendulum in a vacuum. nothing causes the pendulum to slow down along its length, so the whole thing rotates as if it were a rigid rod. In a vacuum, the speed of the pendulum on earth would be directly tied to how much it rotates. But, no one cares about facts and no one wants a pendulum in a vacuum, so screw that. We will always just pick a good looking believable speed.
 
-[../../images/hanging-vertex-animation/at_tut_hanging_rotate.mp4](../../images/hanging-vertex-animation/at_tut_hanging_rotate.mp4)
+<video width="100%" loop autoplay controls muted>
+    <source src="../../images/hanging-vertex-animation/at_tut_hanging_rotate.mp4" type="video/mp4">
+</video>
 
 First we need to just get a sine wave going, we need to get values for rotating back and forth.
 
@@ -81,7 +85,9 @@ An interesting fact about air-resistance is that the amount of force the air exe
 
 Again, with this very simplistic setup, you could probably be all fancy and accurate about it, but no one wants that, so we are going to cheat. We will just make the end of the pendulum lag behind the pivot by offsetting it's time in the sine wave.
 
-[../../images/hanging-vertex-animation/at_tut_hanging_air_resist.mp4](../../images/hanging-vertex-animation/at_tut_hanging_air_resist.mp4)
+<video width="100%" loop autoplay controls muted>
+    <source src="../../images/hanging-vertex-animation/at_tut_hanging_air_resist.mp4" type="video/mp4">
+</video>
 
 What is especially fun about this method is that they way you determine how much lag to contribute can create really trippy effects, and change the feeling of the materials of the object substantially. This pig now looks like it is made of a a goopy sponge instead of a hard object. Gross. But also.... awesome. Technically, we are breaking volume preservation with this, since the rotations of the tips don't take into account the reduced rotation of the mesh above it. But in this case, no one has ever complained. :P
 
@@ -95,7 +101,9 @@ So far the alignment of the rotation has been pretty straightforward. There isn'
 
 To simulate this effect we will take the angle of rotation we are using for the rotation, and offset it a bit with a different wave. I prefer the figure-eight types, so that is what I am creating here, but ovals are also super plausible with similar setups.
 
-[../../images/hanging-vertex-animation/at_tut_hanging_cross_rotation.mp4](../../images/hanging-vertex-animation/at_tut_hanging_cross_rotation.mp4)
+<video width="100%" loop autoplay controls muted>
+    <source src="../../images/hanging-vertex-animation/at_tut_hanging_cross_rotation.mp4" type="video/mp4">
+</video>
 
 In the simple version we just use the cross product of the up vector and the wind direction, but that only gives us one angle. The trick to create this figure eight like behavior is to oscillate the rotation axis between the wind direction and the cross product of the wind direction and the up vector.
 
@@ -111,7 +119,9 @@ Which brings us to our next super important (in my opinion, the most important) 
 
 Air resistance has one more major effect on a pendulum, and that is turbulence. Air isn't uniform, there are eddies, air flow, movement, and other real science words. In this case it just causes turbulence. You can add turbulence a ton of different ways, but I find the most believable looking way with pendulum motion is just to add some local twisting to the chain. By layering this twisting with the other components  you can create a really believable look of turbulence affecting the pendulum.
 
-[../../images/hanging-vertex-animation/at_tut_hanging_twisting.mp4](../../images/hanging-vertex-animation/at_tut_hanging_twisting.mp4)
+<video width="100%" loop autoplay controls muted>
+    <source src="../../images/hanging-vertex-animation/at_tut_hanging_twisting.mp4" type="video/mp4">
+</video>
 
 Taking a look at the setup, first thing we need is a different wave:
 
@@ -127,13 +137,15 @@ At long last, **tutorial_rotate** comes into play, the output of the twist get
 
 # Ugh. Lighting and Normals.
 
-Welcome to the bane of vertex animation. Normals. For those unaware, a normal is a vector that describes the direction of the surface for lighting purposes. You likely have noticed that the lighting seems to move a lot for all of the clips above. There is a simple reason for that: The normals are still the same as if the pig chain wasn't moving at all.
+Welcome to the bane of vertex animation. Normals.
+
+For those unaware, a normal is a vector that describes the direction of the surface for lighting purposes. You likely have noticed that the lighting seems to move a lot for all of the clips above. There is a simple reason for that: The normals are still the same as if the pig chain wasn't moving at all.
 
 In some cases, you may find you actually want this behavior, for example when the amount of movement isn't that much, and having the lighting shift more might exaggerate the movement a bit. Other times, it just isn't noticeable so you can ignore it.
 
 For us though, it has gotten out of hand. There are a few ways to deal with this, but I'm going to stick to the one that works the best in Unreal when dealing with the Rotate About Axis node.
 
-💡 If Matrices were better supported in the Unreal Material Graph, then I would recommend using matrix multiplication for this exact issue. A fair amount of computation can be avoided by multiplying the position and the normals by the same rotation matrix. You can technically do this all in custom nodes, but I'm not getting into that here.
+🤔 If Matrices were better supported in the Unreal Material Graph, then I would recommend using matrix multiplication for this exact issue. A fair amount of computation can be avoided by multiplying the position and the normals by the same rotation matrix. You can technically do this all in custom nodes, but I'm not getting into that here.
 {: .notice--warning}
 
 ## Do everything again, this time for normals.
@@ -156,7 +168,9 @@ You can blend it with a tangent space normal map if you do the transform by usin
 
 There is a simpler way, that is cheaper too, that does have some drawbacks. But I think I would be remiss to not mention it here.
 
-[../../images/hanging-vertex-animation/at_tut_hanging_ddx_ddy.mp4](../../images/hanging-vertex-animation/at_tut_hanging_ddx_ddy.mp4)
+<video width="100%" loop autoplay controls muted>
+    <source src="../../images/hanging-vertex-animation/at_tut_hanging_ddx_ddy.mp4" type="video/mp4">
+</video>
 
 Taking the DDX and crossing it with the DDY of the Absolute World Position (after shader offsets) returns a normalized vector for each face.
 
@@ -166,20 +180,24 @@ Remember to either use a **TransformVector** **WorldSpace to TangentSpace** b
 
 The obvious issue is facetted normals. The DDX cross DDY method simply can't support smooth normals, so use it only where the artifacts aren't an issue, where you want facets, or where you simply can't use any other methods.
 
-💡 If you happen to know a way to use a similar method and get smooth normals... please tell me. Otherwise, I'm going to just keep upping the vertex count. Add enough triangles and you can't see the facets anymore. 
-{: .notice}
+💡 If you happen to know a way to use a similar method and get smooth normals... please tell me. Otherwise, I'm going to just keep upping the vertex count. Add enough triangles and you can't see the facets anymore.
+{: .notice--primary}
 
 # Variations
 
 When dealing with any form of animation, it is unlikely you want all your hanging pendulums to be in sync with each other (although that could be quite surreal in the right circumstances).
 
-[*This is definitely what you are here for, right?*](../../images/hanging-vertex-animation/at_tut_hanging_lots_of_pigs_in_sync.mp4)
+<video width="100%" loop autoplay controls muted>
+    <source src="../../images/hanging-vertex-animation/at_tut_hanging_lots_of_pigs_in_sync.mp4" type="video/mp4">
+</video>
 
 *This is definitely what you are here for, right?*
 
 One easy way to add variation is to offset the time cycle for each instance based on their world position (this can also be useful to approximate wind gusts, but that is for another blogpost.)
 
-[../../images/hanging-vertex-animation/at_tut_hanging_lots_of_pigs.mp4](../../images/hanging-vertex-animation/at_tut_hanging_lots_of_pigs.mp4)
+<video width="100%" loop autoplay controls muted>
+    <source src="../../images/hanging-vertex-animation/at_tut_hanging_lots_of_pigs.mp4" type="video/mp4">
+</video>
 
 ![../../images/hanging-vertex-animation/at_variations.png](../../images/hanging-vertex-animation/at_variations.png)
 
@@ -196,7 +214,9 @@ The new scaled and modified time values are then split by component and each sen
 
 ## Heavy Wind
 
-[../../images/hanging-vertex-animation/at_tut_hanging_lots_of_pigs_in_heavy_wind.mp4](../../images/hanging-vertex-animation/at_tut_hanging_lots_of_pigs_in_heavy_wind.mp4)
+<video width="100%" loop autoplay controls muted>
+    <source src="../../images/hanging-vertex-animation/at_tut_hanging_lots_of_pigs_in_heavy_wind.mp4" type="video/mp4">
+</video>
 
 In really really strong winds, the pendulum may never be able to return to the original center. The **Bend Offset** parameter from before can be used to help with this. The main trick is to lessen the total amount of bending (meaning a smaller, **Bend Amount**, but an increased **Bend Offset,** so the average position of the pendulum is always in a bent over position.
 
@@ -210,7 +230,9 @@ Something I've left out is the concept of stiffness. With the above examples thi
 
 The problem with this type of masking is that it breaks all forms of volume conservation. Now, the tips of the mesh will be rotating more than the base of the mesh. This creates shearing. Luckily with some hackery we can kind-a fix that problem too.
 
-[../../images/hanging-vertex-animation/at_tut_hanging_shearing_correction.mp4](../../images/hanging-vertex-animation/at_tut_hanging_shearing_correction.mp4)
+<video width="100%" loop autoplay controls muted>
+    <source src="../../images/hanging-vertex-animation/at_tut_hanging_shearing_correction.mp4" type="video/mp4">
+</video>
 
 The basic stiffness setup is quite simple. Lets take the Bend Stiffness parameter and use it as the exponent of a power on the bend mask. This is the core of adding stiffness, a value of 1.0 creates a linear falloff of the stiff masking, a value of 0.0 results in no masking of the rotation.
 
@@ -230,4 +252,6 @@ Thanks for reading this far! Hopefully there is some useful information in here.
 
 # **[Get the materials here.](https://drive.google.com/file/d/17ceSyxfcHMPfH3S_Kyb4V6MkRHq1934h/view?usp=sharing)**
 
-If you have suggestions for what you might want to see in the future, leave a comment. Next time will probably be a deep dive in how you can use SmoothStep and InverseLerp for everything, and how you should. But who knows, i'm fickle and these take longer than they should. :P
+If you have thoughts, opinions, or ideas you want to see explored, hit me up on the socials:
+
+> {% include socials.md %}
