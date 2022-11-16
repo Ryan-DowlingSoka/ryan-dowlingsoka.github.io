@@ -1,7 +1,7 @@
 ---
-title: "Batch Rename Tool"
+title: "Batch Rename Editor Widget Tutorial"
 date: 2022-02-04
-image: "/unreal/hanging-vertex-animation/hanging-vertex-animation.png"
+image: "/unreal/batch-rename-tool/BatchRename_Reel.gif"
 ---
 
 Renaming lots of objects in unreal is a bit unwieldy. If you aren’t a scripter it can be large pain. This tool is very similar to one I built for use in production at The Coalition.
