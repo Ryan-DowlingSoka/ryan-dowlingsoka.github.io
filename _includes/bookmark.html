@@ -1,0 +1,17 @@
+<figure class="kg-card kg-bookmark-card" {% if include.style and include.style != "" %} style="{{include.style}}" {% endif %}>
+    <a class="kg-bookmark-container" href="{{include.url}}">
+        <div class="kg-bookmark-content">
+            <div class="kg-bookmark-title">{{include.title}}
+            </div>
+            <div class="kg-bookmark-description">{{include.description}}
+            </div>
+            	<div class="kg-bookmark-metadata">
+                	<img class="kg-bookmark-icon" src="{{include.icon}}" alt="" onerror="this.style.display='none'">
+                	<span class="kg-bookmark-author">{{include.author}}</span>
+            	</div>
+        	</div>
+        	<div class="kg-bookmark-thumbnail">
+            <img src="{{include.image}}">
+        </div>
+    </a>
+</figure>

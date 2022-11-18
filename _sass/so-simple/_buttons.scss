@@ -62,3 +62,58 @@
     font-size: 0.75rem;
   }
 }
+
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  cursor: pointer;
+  padding: 4px;
+  border: none;
+  text-align: left;
+  outline: none;
+  background-color: rgba(255,255,255,.1);
+  margin-bottom:2em;
+}
+
+.collapsible:before {
+  color: currentColor;
+  content: '▼';
+  position: relative;
+  vertical-align: middle;
+  padding:8px;
+  font-size: 2rem;
+  display:inline-block;
+  transform: rotate(-90deg);
+  transition-duration: 100ms;
+  transition-timing-function: ease-in-out;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.collapsible.active, .collapsible:hover {
+  background-color: rgba(255, 255, 255, 0.30);
+}
+
+.collapsible.active {
+  margin-bottom: 0px;
+}
+
+.collapsible.active:before {
+    transform: rotate(0deg);
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.collapsed-content {
+  padding: 8px 12px;
+  margin-top: 0px;
+  display: none;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.10);
+  opacity:0;
+}
+
+.collapsed-content.active {
+  display: block;
+  overflow: hidden;
+  opacity:1;
+  transition-duration: 200ms;
+}

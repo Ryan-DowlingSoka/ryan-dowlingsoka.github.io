@@ -6,6 +6,7 @@ body {
   color: $text-color;
   background: $background-color;
   border-top-color: $nav-background-color;
+  background-image: linear-gradient(-45deg, rgba(55, 2, 62, 0.276), transparent 70%)
 }
 
 a {
@@ -36,18 +37,21 @@ blockquote {
 }
 
 .copyright {
-  color: lighten($text-color, 25%);
+  color: darken($text-color, 25%);
   a {
-    color: lighten($text-color, 25%);
+    color: darken($text-color, 25%);
+  }
+  a:hover {
+    color: $text-color;
   }
 }
 
 .taxonomy-title {
-  color: lighten($text-color, 60%);
+  color: darken($text-color, 60%);
 }
 
 .taxonomy-count {
-  color: lighten($text-color, 50%);
+  color: darken($text-color, 50%);
 }
 
 .taxonomy-index {
@@ -99,21 +103,33 @@ blockquote {
 }
 
 .toc-wrapper {
-  border-color: mix(#fff, $border-color, 25%);
+  border-color: mix($background-color, #000, 75%);
+  width:100%;
 
   h2 {
     color: $base05;
     background-color: $base00;
+    padding:18px;
+  }
+
+  ol {
+    background-color: mix($background-color, #000, 75%);
+    padding: 0px;
+  }
+
+  ol.js-toc-is-open {
+    padding:18px;
   }
 
   li {
+
     ol {
-      background-color: $background-color;
+      background-color: mix($background-color, #000, 75%);
+      padding: 0 0 0 12px !important;
     }
 
     a {
-      &:hover,
-      &:focus {
+      &:hover{
         border-bottom: 1px dotted $border-color;
       }
     }
@@ -196,22 +212,27 @@ td {
 
 /* Accent notice */
 .notice--accent {
-  @include notice(mix(#fff, $accent-color, 70%));
+  @include notice(mix(#fff, $accent-color, 10%));
 }
 
 /* Primary notice */
 .notice--primary {
-  @include notice(mix(#fff, $primary-color, 70%));
+  @include notice(mix(#fff, $primary-color, 10%));
 }
 
 /* Warning notice */
 .notice--warning {
-  @include notice(mix(#fff, $warning-color, 70%));
+  @include notice(mix(#fff, $warning-color, 10%));
 }
 
 /* Success notice */
 .notice--success {
-  @include notice(mix(#fff, $success-color, 70%));
+  @include notice(mix(#fff, $success-color, 10%));
+}
+
+/* Success notice */
+.notice--code {
+  @include notice(mix(#fff, $code-color, 10%));
 }
 
 /* Danger notice */

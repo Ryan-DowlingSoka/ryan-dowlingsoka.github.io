@@ -45,6 +45,7 @@
     width: 100%;
     object-fit:cover;
     max-height: 450px;
+    border-radius: 0px;
   }
 }
 
@@ -293,4 +294,9 @@
   .page-wrapper {
     max-width: $main-sidebar-max-width;
   }
+}
+
+img{
+  border-radius: 8px;
+  box-shadow: 1px 1px 8px rgba(0,0,0,.3);
 }

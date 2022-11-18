@@ -1,0 +1,12 @@
+<figure class="{{ include.class }}">
+    {% if include.link and include.link != '' %}
+    <a href="{{ include.link }}">
+        <img src="{{ include.url }}" alt="{{include.caption}}">
+    </a>
+    {% else %}
+    <img src="{{ include.url }}" alt="{{include.caption}}">
+    {% endif %}
+    {% if include.caption and include.caption != '' %}
+    <figcaption>{{include.caption | markdownify}}</figcaption>
+    {% endif %}
+</figure> 

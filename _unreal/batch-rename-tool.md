@@ -1,8 +1,12 @@
 ---
 title: "Batch Rename Editor Widget Tutorial"
-date: 2022-02-04
-image: "/unreal/batch-rename-tool/BatchRename_Reel.gif"
+date: 2021-03-10
+image: 
+  path: "/unreal/batch-rename-tool/BatchRename_Reel.gif"
+  thumbnail: "/unreal/batch-rename-tool/BatchRename_Reel.gif"
 ---
+
+> Learn how to create a mass actor/asset batch rename tool using Editor Utility Widgets. 
 
 Renaming lots of objects in unreal is a bit unwieldy. If you aren’t a scripter it can be large pain. This tool is very similar to one I built for use in production at The Coalition.
 
@@ -18,7 +22,7 @@ It has a few goals:
 
 ### Source Files:
 
-[BlueprintWidgetsV01.zip](../batch-rename-tool/BlueprintWidgetsV01.zip)
+[BlueprintWidgetsV01.zip](./BlueprintWidgetsV01.zip)
 
 # Episode 1 - General Layout
 
@@ -30,11 +34,11 @@ This episode covers the general layout of the tool, including the powerful **Det
 
 💡 In the above video we setup a **Details View**, which is one of the most powerful widgets in the Editor Utility Widget toolset, but one that is a bit un-intuitive.
 
-![Untitled](../batch-rename-tool/Untitled.png)
+![Untitled](./Untitled.png)
 
 It works by displaying the details (same as in the world outliner for example) of any given **UObject**. But you must first assign the **UObject** in the graph. Doing so in **Preconstruct** will even show you what the details view will look like in the **Design View**.
 
-![Untitled](../batch-rename-tool/Untitled%201.png)
+![Untitled](./Untitled%201.png)
 
 This powerful widget can be customized, to filter by category or by names of individual parameters.
 
@@ -50,11 +54,11 @@ It isn’t perfect though, the results aren’t virtualized, meaning that if you
 
 If you need to work with hundreds to thousands of items you should use the **List View** instead, which is a bit more of a hassle to deal with. In those cases you will need to create a widget that you add the **User Object List Entry** interface to.
 
-![Untitled](../batch-rename-tool/Untitled%202.png)
+![Untitled](./Untitled%202.png)
 
 After adding the interface, you need to ‘massage’ the data from the model to the view, since the elements are virtualized they can’t store information about themselves directly and you must implement the **On List Item Object Set** interface event to get access to the data the item is currently showing.
 
-![Untitled](../batch-rename-tool/Untitled%203.png)
+![Untitled](./Untitled%203.png)
 
 For many tools, this level of complexity isn’t necessary or worth it, but know your use-case. If this rename tool needs to be able to work on a world’s worth of objects at once the **Dynamic Entry Box** isn’t going to cut it, so think ahead and implement the **List View** version instead.
 

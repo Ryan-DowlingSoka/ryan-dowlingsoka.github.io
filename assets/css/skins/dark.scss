@@ -1,4 +1,5 @@
 ---
+sitemap: false
 ---
 
 @charset "utf-8";
@@ -19,8 +20,9 @@ $code-background-color: mix(#000, $background-color, 15%) !default;
 $border-color: tint($base-color, 80%) !default;
 
 $primary-color: rgb(85, 85, 85) !default;
-$success-color: rgb(48, 209, 88) !default;
-$warning-color: rgb(255, 239, 157) !default;
+$success-color: rgb(65, 166, 76) !default;
+$code-color: rgb(26, 38, 48) !default;
+$warning-color: rgb(110, 66, 33) !default;
 $danger-color: rgb(253, 103, 95) !default;
 $info-color: rgb(153, 195, 211) !default;
 

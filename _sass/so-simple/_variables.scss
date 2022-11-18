@@ -5,7 +5,7 @@
 /* Breakpoint widths */
 $small: 375px !default;
 $medium: 600px !default;
-$large: 1024px !default;
+$large: 1000px !default;
 $xlarge: 1280px !default;
 
 /* Fluid type */
@@ -82,7 +82,7 @@ $youtube-color: #bb0000 !default;
 $xing-color: #006567 !default;
 
 /* Max-width of the main content */
-$main-max-width: $medium !default;
+$main-max-width: $large !default;
 
 /* Max-width of the main content + sidebar */
 $main-sidebar-max-width: $large !default;

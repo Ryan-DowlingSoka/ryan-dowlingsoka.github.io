@@ -54,10 +54,19 @@ section {
 
 h1,
 h2,
+{
+  margin-top: 1.5rem;
+  margin-bottom: .5rem;
+}
+
 h3,
 h4,
 h5,
-h6,
+h6{
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+}
+
 p,
 pre,
 blockquote,
@@ -132,6 +141,7 @@ pre {
   font-family: monospace, monospace; /* 1 */
   font-size: 1rem; /* 2 */
   overflow-x: auto;  /* 3 */
+  tab-size: 4;
 }
 
 /* Text-level semantics

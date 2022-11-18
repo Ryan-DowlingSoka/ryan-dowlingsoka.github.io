@@ -615,6 +615,8 @@
             content
                 .trigger('lity:ready', [self])
             ;
+
+            wheelzoom(content);
         }
     }
 

@@ -14,9 +14,10 @@
   margin: 2em 0 !important; /* override*/
   padding: 1em;
   @include yiq-contrasted($notice-color);
+  background: linear-gradient(160deg, $notice-color -150%, rgba(255,255,255,0.05) 150%);
   border-radius: $border-radius;
-  -webkit-box-shadow: 0 1px 1px rgba($notice-color, 0.25);
-  box-shadow: 0 1px 1px rgba($notice-color, 0.25);
+  -webkit-box-shadow: 0 0px 10px rgba(black, .3);
+  box-shadow: 0 0px 10px rgba(black, .3);
 
   h4 {
     margin-top: 0 !important; /* override*/
@@ -41,13 +42,13 @@
     padding-top: 0;
   }
 
-  a {
-    color: mix(#000, $notice-color, 75%);
+  // a {
+  //   color: mix(#000, $notice-color, 10%);
 
-    &:hover {
-      color: mix(#000, $notice-color, 60%);
-    }
-  }
+  //   &:hover {
+  //     color: mix(#000, $notice-color, 0%);
+  //   }
+  // }
 
   ul {
     &:last-child {

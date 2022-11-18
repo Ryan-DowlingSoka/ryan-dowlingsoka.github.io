@@ -9,6 +9,15 @@
   a {
     color: inherit;
   }
+
+  box-shadow:  0px 0px 15px black, 1px 1px 5px black;
+  background-color: rgba(255,255,255,.1);
+
+  border-radius: 8px;
+  
+  padding: 10px;
+
+  height: fit-content;
 }
 
 .entry-header {
@@ -16,9 +25,10 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+  overflow:hidden;
 }
 
 .entry-title {
@@ -28,13 +38,21 @@
   font-style: italic;
   letter-spacing: -1px;
   word-wrap: break-word; /* break long words that could overflow */
-
+  position: absolute;
+  display: inline-block;
+  padding: .5em .25em;
   a {
     text-decoration: none;
   }
+  text-shadow: 1px 1px 15px black, 
+  1px 1px 20px black, 
+  0px 0px 5px black, 
+  0px 0px 5px black;
+  color: inherit;
 
   a[rel="bookmark"]::before {
     content: '';
+    display:block;
     position: absolute;
     left: 0;
     top: 0;
@@ -48,7 +66,10 @@
   -ms-flex-order: -1;
   order: -1;
   width: 100%;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
+  overflow: hidden;
+  border-radius: 5px 5px 0px 0px;
+  box-shadow: none;
 }
 
 .entry-meta {
@@ -61,7 +82,14 @@
 
   .read-time + .entry-date::before {
     content: "\2022";
-    padding: 0 0.5em;
+    padding: 0px 5px;
+  }
+}
+
+.entry-excerpt {
+  //padding: 5px;
+  blockquote {
+    border-radius: 0px 0px 5px 5px;
   }
 }
 
@@ -136,8 +164,12 @@
 
 .entries-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 2em;
+  grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+  grid-row-gap: 1em;
+  grid-column-gap:2em;
+  grid-auto-rows: 500px;
+  opacity: 0%;
+  transition: opacity 300ms;
 
   .entry {
     display: -webkit-box;
@@ -147,7 +179,7 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    padding-bottom: 2rem;
+    //padding-bottom: 2rem;
   }
 
   .entry-title {

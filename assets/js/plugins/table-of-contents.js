@@ -37,7 +37,7 @@ function hideToc(elem) {
 
   window.setTimeout(function() {
     elem.classList.remove('js-toc-is-open');
-  }, 350);
+  }, 1);
 };
 
 function toggleToc(elem) {
