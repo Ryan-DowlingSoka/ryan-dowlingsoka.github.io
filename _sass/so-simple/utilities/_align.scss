@@ -78,6 +78,7 @@ a img.align-left {
   grid-template-columns: 
   repeat(auto-fill, minmax(325px, 1fr)); 
   grid-column-gap: 1em;
+  overflow:hidden;
 }
 
 .align-flex{

@@ -103,7 +103,7 @@ So we don’t **yet** have dynamic branching in Unreal, so how can we branch our
 
 We need to turn to the custom node.
 
-### MF_ConditionalTextureSample_Color_SharedWrapped
+### MF_&#8203;ConditionalTextureSample_&#8203;Color_&#8203;SharedWrapped
 
 [![Untitled](./Untitled%203.png)](./Untitled%203.png)
 {: .align-center}
@@ -139,7 +139,7 @@ The `* View.MaterialTextureDerivativeMultiply` code comes from what Unreal does 
 
 In the project files I have also included a non-shared sampler version of this function if you need to use the texture asset’s texture sampler.
 
-### MF_ConditionalTextureSample_Normal_SharedWrapped
+### MF_&#8203;ConditionalTextureSample_&#8203;Normal_&#8203;SharedWrapped
 
 [![Untitled](./Untitled%206.png)](./Untitled%206.png)
 {: .align-center}
@@ -167,7 +167,7 @@ A side benefit of wrapping your samples in a custom node is that unlike the norm
 
 Since you might sometimes have valuable data in BA, this node outputs the **PackedRGBA** values so you can keep those around if you need them. So in a typical **Normal(RG) Metallic(B) Roughness(A)** setup, you’d read the RGB output pin for the unpacked normal, and then component mask **BA** to get Metallic and Roughness respectively.
 
-### MF_SampleSurface_\<Configuration\>
+### MF_&#8203;SampleSurface_&#8203;\<Configuration\>
 
 Material layers aren’t just individual textures, they are often a combination of textures or a texture set. Megascans for non-metal surfaces comes with BaseColor, Normals, Ambient Occlusion, and Roughness. You **********could********** put multiple texture samples into the custom nodes above, but I prefer to separate them out into individual functions, and then to bundle those together as surfaces based on texture packing, or features set.
 
@@ -188,7 +188,7 @@ In my triplanar material function the usage looks like this:
 
 The reroutes are all for cleanliness, check the large graph overview at the top to see where each comes from.
 
-### MF_Triplanar_TransformNormals_Layer
+### MF_&#8203;Triplanar_&#8203;TransformNormals_&#8203;Layer
 
 [![Untitled](./Untitled%2010.png)](./Untitled%2010.png)
 {: .align-center}
@@ -204,7 +204,7 @@ So now we’ve sampled the textures but we need to make sure the normals are in 
 
 We’re just going to take his work and utilize it for ourselves.
 
-### MF_Triplanar_TransformNormals
+### MF_&#8203;Triplanar_&#8203;TransformNormals
 
 {% include image.html
     url="./Untitled%2012.png"
@@ -261,7 +261,7 @@ It can be hard to show why this is so important. Without this node the normals a
 
 This is extremely important because if you don’t do this transform: your work will be subtly wrong, and it may take you a long time to notice why nothing is lighting properly.
 
-### MF_Triplanar_Coordinates
+### MF_&#8203;Triplanar_&#8203;Coordinates
 
 [![Untitled](./Untitled%2013.png)](./Untitled%2013.png)
 {: .align-center}
@@ -300,7 +300,7 @@ This function takes in a world position, which is where any offsetting or scalin
 [![Untitled](./Untitled%2016.png)](./Untitled%2016.png)
 {: .align-center}
 
-### MF_Triplanar_BlendCoefficients
+### MF_&#8203;Triplanar_&#8203;BlendCoefficients
 
 Getting the different blend weights for each UV plane of the triplanar mapping we do through another function:
 
@@ -326,7 +326,7 @@ This creates a semi sharp falloff on the edges of the three axes. There are lots
 🤔 Be careful with the `pow()` function here, in HLSL negative base values in `pow(base, exp)` are `NaN` and Epic just clamps the values to the positive range for safety reasons. I’ve burned so much time because I’ve forgotten this. Use `abs` on any values that go into a `pow` or learn to feel regret like me.
 {: .notice--warning}
 
-### MF_BlendMaterialAttributes_Add
+### MF_&#8203;BlendMaterialAttributes_&#8203;Add
 
 The final function we need to put everything together is a function to blend the different samples.
 
@@ -380,7 +380,7 @@ Most notably there is only one MF_SampleSurface being used, but also some of the
 
 The right half of this graph is the same, we use [MF_SampleSurface](#mf_samplesurface_configuration) and run the output into the [MF_Triplanar_TransformNormals_Layer](#mf_triplanar_transformnormals_layer) only this time instead of using a constant value as the **SelectionAxisIndex** we are piping in a previously calculated value from a new function.
 
-### MF_Triplanar_Dither_SelectUVs
+### MF_&#8203;Triplanar_&#8203;Dither_&#8203;SelectUVs
 
 {% include image.html
     url="./Untitled%2025.png"
@@ -416,7 +416,7 @@ The `int index = trunc(selection + 0.01f);` is again to prevent possible float i
 
 The FunctionInput **SelectionIndex** has a default value that uses our next important dithering function:
 
-### MF_Triplanar_Dither_SelectIndex
+### MF_&#8203;Triplanar_&#8203;Dither_&#8203;SelectIndex
 
 {% include image.html
     url="./Untitled%2026.png"
@@ -492,7 +492,7 @@ But I’ve noticed these strong vertical and horizontal streaks.
 
 I’ve tried all of these options. **SpatioTemporalBlueNoise** has the least grain for sure, but it also requires a precomputed texture and there still is some visible tiling. So I’ve gone with **InterleavedGradientNoise**. All credit here goes to [Alan Wolfe](https://twitter.com/Atrix256) and [Jorge Jimenez](https://twitter.com/iryoku1) for their work here.
 
-### MF_TemporalDither_InterleavedGradient
+### MF_&#8203;TemporalDither_&#8203;InterleavedGradient
 
 {% include image.html
     url="./Untitled%2031.png"
@@ -556,7 +556,7 @@ My solution is near identical to his, but with support for transforming normals,
 
 Structurally this follows the original Triplanar setup, but notably with only one [MF_BlendMaterialAttributes_Add](#mf_blendmaterialattributes_add) and with an additional node **MF_BiplanarPlane_Selection** at the start which selects the UV axes and derivatives for the two texture samples.
 
-### MF_BiplanarPlane_Selection
+### MF_&#8203;BiplanarPlane_&#8203;Selection
 
 [![Untitled](./Untitled%2036.png)](./Untitled%2036.png)
 {: .align-center}
@@ -687,10 +687,10 @@ I love triplanar mapping and I think you should too. Hopefully if you work in un
 
 If you have comments or thoughts hit me up at one of the various social medias!
 
-[https://twitter.com/RyanDowlingSoka](https://twitter.com/RyanDowlingSoka)
+[https://twitter.com/&#8203;RyanDowlingSoka](https://twitter.com/RyanDowlingSoka)
 
-[https://mastodon.gamedev.place/@ryan_dowlingsoka](https://mastodon.gamedev.place/@ryan_dowlingsoka)
+[https://mastodon.gamedev.place/&#8203;@ryan_dowlingsoka](https://mastodon.gamedev.place/@ryan_dowlingsoka)
 
-[https://cohost.org/RyanDowlingSoka](https://cohost.org/RyanDowlingSoka)
+[https://cohost.org/&#8203;RyanDowlingSoka](https://cohost.org/RyanDowlingSoka)
 
 Or you can most likely find me at [benui’s](https://discord.gg/JP3zWSM6mu) or [asher’s](https://discord.gg/NHFevNwcRN) discords.
