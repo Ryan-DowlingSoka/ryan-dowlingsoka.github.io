@@ -27,7 +27,8 @@
 
 .align-center,
 div.align-center,
-a img.align-center, 
+a img.align-center,
+p.align-center>a>img, 
 p.align-center>img{
   display: block;
   margin-right: auto;
