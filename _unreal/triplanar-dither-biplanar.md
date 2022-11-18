@@ -511,6 +511,7 @@ int2 iP = trunc(pixel);
 pixel = float2(iP) + 5.588238f * float(f);
 return  frac(52.9829189f * frac(0.06711056f*pixel.x + 0.00583715f*pixel.y));
 ```
+{: .max-width-100 }
 
 ![Untitled](./Untitled%2032.png)
 
