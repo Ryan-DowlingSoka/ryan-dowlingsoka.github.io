@@ -69,8 +69,6 @@ Below is the complete material graph for this effect, and below that are explana
 
 **If you want Triplanar mapping, but don’t like noise or other artifacts, this version is the one for you.**
 
-{{ page.url | inspect }}
-
 {% include image.html
     url="./Untitled%201.png"
     link="./Untitled%201.png"
