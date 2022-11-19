@@ -83,7 +83,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-paginate
-  - jekyll_video_tag
+  - jekyll_picture_tag
 
 # Front Matter Defaults
 defaults:
@@ -117,3 +117,6 @@ footer_links:
   - title: Feed
     url: atom.xml
     icon: fas fa-rss-square
+
+picture:
+  ignore_missing_images: true

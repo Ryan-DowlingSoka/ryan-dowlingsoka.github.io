@@ -2,8 +2,9 @@
 title: "Python in Unreal Tips"
 date: 2022-06-13
 image: 
-  path: "/unreal/material-parameters-helper/mph.header.png"
-  thumbnail: "/unreal/material-parameters-helper/mph.header.png"
+  responsive: true
+  path: "/unreal/python-in-unreal/header.png"
+  thumbnail: "/unreal/python-in-unreal/header.png"
 ---
 
 > Make the most out of using Python in Unreal Engine. Learn how to setup Auto-Complete, do asynchronous loops, handle slow tasks and other various tips.
@@ -23,7 +24,7 @@ The important parts:
 
 - Enable the **Python Scripting Plugin**
 - Enable the **Editor Scripting Utilities Plugin**
-- Restart the Editor
+- Restart the EditorW
 - Go to **Editor Settings** and **Enable Python Developer Mode**
 - Restart the Editor
 

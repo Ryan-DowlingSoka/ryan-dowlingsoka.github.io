@@ -36,7 +36,7 @@ categories: about
 
 <div markdown="1" class="flex-resume-games">
 
-![{{game.title}}](../images/resume/{{game.image}}){: .align-left}
+![{{game.title}}](../assets/images/resume/{{game.image}}){: .align-left}
 
 ### {{game.title}}
 {: .no-margin}

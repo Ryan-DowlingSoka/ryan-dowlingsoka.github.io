@@ -2,6 +2,7 @@
 title: "Triplanar, Dithered Triplanar, and Biplanar Mapping in Unreal"
 date: 2022-11-08
 image: 
+  responsive: true
   path: "/unreal/triplanar-dither-biplanar/header.png"
   thumbnail: "/unreal/triplanar-dither-biplanar/header.png"
 ---
@@ -68,10 +69,12 @@ Below is the complete material graph for this effect, and below that are explana
 
 **If you want Triplanar mapping, but don’t like noise or other artifacts, this version is the one for you.**
 
+{{ page.url | inspect }}
+
 {% include image.html
     url="./Untitled%201.png"
     link="./Untitled%201.png"
-    caption="[Click](./Untitled%201.png) for full-size graph."
+    caption="[Click](/triplanar-dither-biplanar/Untitled%201.png) for full-size graph."
     class="align-center"
     %}
 

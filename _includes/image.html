@@ -1,10 +1,25 @@
 <figure class="{{ include.class }}">
     {% if include.link and include.link != '' %}
-    <a href="{{ include.link }}">
-        <img src="{{ include.url }}" alt="{{include.caption}}">
-    </a>
-    {% else %}
-    <img src="{{ include.url }}" alt="{{include.caption}}">
+        <a href="{{ include.link }}">
+    {% endif %}
+        {% if include.responsive == false %}
+            <img src="{{ include.url }}" alt="{{ include.caption }}">
+        {% else %}
+            {% assign url = include.url | replace: "%20", "\ " %}
+            {% assign url = url | replace: "./", page.url %}
+            {% if include.preset and include.preset != "" %}
+                {% assign preset = "default" %}
+            {% else %}
+                {% assign preset = "jpt-webp" %}
+            {% endif %}
+            {% picture 
+                jpt-webp
+                "{{ url }}"
+                 --alt '{{ include.caption }}' 
+                 --img %}
+        {% endif %}
+    {% if include.link and include.link != '' %}
+        </a>
     {% endif %}
     {% if include.caption and include.caption != '' %}
     <figcaption>{{include.caption | markdownify}}</figcaption>

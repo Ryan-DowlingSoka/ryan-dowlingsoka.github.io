@@ -2,6 +2,7 @@
 title: "Hanging Vertex Animation"
 date: 2021-03-10
 image: 
+  responsive: true
   path: "/unreal/hanging-vertex-animation/hanging-vertex-animation.png"
   thumbnail: "/unreal/hanging-vertex-animation/hanging-vertex-animation.png"
 ---

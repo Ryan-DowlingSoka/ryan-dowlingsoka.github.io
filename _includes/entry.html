@@ -20,7 +20,11 @@
             {% assign entry_image = entry_image | relative_url %}
           {% endunless %}
           {% assign entry_image = entry_image | escape %}
-          <img class="entry-image u-photo" src="{{ entry_image }}" alt="">
+          {% if entry.image.responsive and entry.image.responsive == true %}
+            {% picture jpt-webp "{{ entry_image }}" --img class="entry-image u-photo" %}
+          {% else %}
+            <img class="entry-image u-photo" src="{{ entry_image }}" alt="">
+          {% endif %}
         {% endif %}
     </header>
   </a>
@@ -31,7 +35,7 @@
       {% endif %}
     </div>
   {% endunless %}
-  {% if site.read_time or entry.date and page.layout != 'collection' %}
+  {% if site.read_time or entry.date %}
     <footer class="entry-meta">
       {% if site.read_time %}{% include read-time.html %}{% endif %}
       {% if entry.date %}{% include entry-date.html %}{% endif %}

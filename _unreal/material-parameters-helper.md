@@ -2,6 +2,7 @@
 title: "Material Parameters Helper: Odds and Ends"
 date: 2022-05-15
 image: 
+  responsive: true
   path: "/unreal/material-parameters-helper/mph.header.png"
   thumbnail: "/unreal/material-parameters-helper/mph.header.png"
 ---
