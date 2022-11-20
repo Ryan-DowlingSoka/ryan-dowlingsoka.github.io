@@ -32,6 +32,8 @@ If you've found me to learn about some stuff see below!
 
 I also post a lot about Unreal Engine specific topics, which you can find here:
 
-<div class="entries-grid">
+{% capture unreal_items %}
   {% include documents-collection.html collection='unreal' sort_order='reverse' sort_by = 'date' %}
-</div>
+{% endcapture %}
+
+{% include colcade-grid.html items = unreal_items %}

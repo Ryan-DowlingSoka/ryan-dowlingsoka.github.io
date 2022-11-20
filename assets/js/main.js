@@ -58,6 +58,7 @@ function on_ready(){
     });
   }
 
+  /*
   window.addEventListener("resize", resizeAllGridItems);
 
   allItems = document.getElementsByClassName("item");
@@ -65,7 +66,7 @@ function on_ready(){
     imagesLoaded( allItems[x], resizeInstance);
   }
 
-  resizeAllGridItems();
+  resizeAllGridItems();*/
 }
 
 
