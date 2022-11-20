@@ -11,7 +11,9 @@
             	</div>
         	</div>
         	<div class="kg-bookmark-thumbnail">
-            <img src="{{include.image}}">
+            {% picture lazy 
+                "{{include.image}}" %}
+            <!--<img src="{{include.image}}">-->
         </div>
     </a>
 </figure>

@@ -21,7 +21,7 @@
           {% endunless %}
           {% assign entry_image = entry_image | escape %}
           {% if entry.image.responsive and entry.image.responsive == true %}
-            {% picture jpt-webp "{{ entry_image }}" --img class="entry-image u-photo" %}
+            {% picture lazy "{{ entry_image }}" --img class="entry-image u-photo" %}
           {% else %}
             <img class="entry-image u-photo" src="{{ entry_image }}" alt="">
           {% endif %}

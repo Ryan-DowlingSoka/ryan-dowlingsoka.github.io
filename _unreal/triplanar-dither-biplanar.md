@@ -18,7 +18,7 @@ Martin Palko in 2014:
 {% include bookmark.html
     url="http://www.martinpalko.com/triplanar-mapping/"
     author="Martin Palko"
-    image="https://www.martinpalko.com/wp-content/uploads/2014/03/3PlanarMaps-680x456.jpg"
+    image="/assets/images/bookmarks/TriplanarMapped-680x325.jpg"
     title="Triplanar Mapping"
     description="So, what is this triplanar mapping, and what’s it for? The general idea is that we map a texture three times with planar maps (thus the tri-planar bit) along the X, Y, and Z axes, and then blend between these three samples based on the angle of the face, using the one that fits best with the least stretching. In theory we’ll never have a stretched texture or hard seams, and we don’t even have to UV map our mesh!" %}
 
@@ -27,7 +27,7 @@ Or Ben Golus’s great medium piece from 2017 are both great starting points:
 {% include bookmark.html
     url="https://bgolus.medium.com/normal-mapping-for-a-triplanar-shader-10bf39dca05a#d715"
     author="Ben Golus"
-    image="https://miro.medium.com/max/640/1*34UDOi3zfgW5Rwtkzr4DDg.gif"
+    image="/assets/images/bookmarks/1_cSw3oFH9WP9rrYmpllZcdQ.png"
     title="Normal Mapping for a Triplanar Shader"
     description="Triplanar mapping is a great solution for dealing with texturing on complex geometry that is difficult or impossible to use traditional UVs for with out obvious stretching and/or texture seams. It’s also a technique plagued by half hearted and straight up wrong implementations of normal mapping." %}
 
@@ -449,7 +449,7 @@ For example Spatiotemporal Blue Noise which uses a texture array (or flipbook) o
 {% include bookmark.html
     url="https://developer.nvidia.com/blog/rendering-in-real-time-with-spatiotemporal-blue-noise-textures-part-1"
     author="Alan Wolfe, Nathan Morrical, Tomas Akenine-Moller and Ravi Ranamoorthi"
-    image="https://developer-blogs.nvidia.com/wp-content/uploads/2021/12/Spatiotemporal-featured1.png"
+    image="/assets/images/bookmarks/Spatiotemporal-featured1.png"
     title="Rendering in Real Time with Spatiotemporal Blue Noise Textures, Part 1"
     description="In this post, we add the time axis to blue-noise textures, giving each frame high-quality spatial blue noise and making each pixel be blue over time. This provides better convergence and temporal stability over other blue-noise animation methods. " %}
 
@@ -458,7 +458,7 @@ Or perhaps Interleaved Gradient Noise:
 {% include bookmark.html
     url="https://blog.demofox.org/2022/01/01/interleaved-gradient-noise-a-different-kind-of-low-discrepancy-sequence/"
     author="Alan Wolfe"
-    image="https://demofox2.files.wordpress.com/2021/12/big_windows_ign.png"
+    image="/assets/images/bookmarks/big_windows_ign.png"
     title="Rendering in Real Time with Spatiotemporal Blue Noise Textures, Part 1"
     description="In 2014, Jorge Jimenez from Activision presented a type of noise optimized for use with Temporal Anti Aliasing called Interleaved Gradient Noise or IGN (http://www.iryoku.com/next-generation-post-processing-in-call-of-duty-advanced-warfare). This noise helps the neighborhood sampling history rejection part of TAA be more accurate, allowing the render to be closer to ground truth. IGN was ahead of it’s time. It still isn’t as well known or understood as it should be, and it shows the way for further advancements." %}
 
@@ -540,7 +540,7 @@ Dither has potential issues with GPU cache thrashing *(or something something mu
 {% include bookmark.html
     url="https://iquilezles.org/articles/biplanar/"
     author="Inigo Quilez"
-    image="https://iquilezles.org/articles/biplanar/gfx00.jpg"
+    image="/assets/images/bookmarks/gfx00.jpg"
     title="biplanar mapping - 2020"
     description="In this article I'll propose an alternative to \"Box mapping\", also known as \"RoundCube mapping\" or \"triplanar mapping\", which uses only two texture fetches rather than three, at the cost of some extra arithmetic. This might be a good trade-off between computation and bandwidth to do these days, depending on the application." %}
 
@@ -636,7 +636,7 @@ If you wish to see and use my examples, then in the UE5 Megascans Bridge Plugin 
 {% include bookmark.html
     url="https://quixel.com/megascans/home?assetId=vmocdh0"
     author="Quixel Megascans"
-    image="https://ddinktqu5prvc.cloudfront.net/vmocdh0/vmocdh0_Thumb_HighPoly_Retina_preview.jpg"
+    image="/assets/images/bookmarks/vmocdh0_Thumb_HighPoly_Retina_preview.jpg"
     title="Massive Sandstone Cliff"
     description="4 Points - Ensure you download at Nanite Quality"
     style="margin-bottom:0em" %}
@@ -644,7 +644,7 @@ If you wish to see and use my examples, then in the UE5 Megascans Bridge Plugin 
 {% include bookmark.html
     url="https://quixel.com/megascans/home?assetId=wgybaci"
     author="Quixel Megascans"
-    image="https://ddinktqu5prvc.cloudfront.net/wgybaci/wgybaci_Popup_1920_preview.jpg"
+    image="/assets/images/bookmarks/wgybaci_Popup_1920_preview.jpg"
     title="Lichened Rock Wall"
     description="4 Points - Ensure you download at High Quality"
     style="margin-bottom:0em" %}

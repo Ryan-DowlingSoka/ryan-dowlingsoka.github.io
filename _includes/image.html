@@ -7,16 +7,10 @@
         {% else %}
             {% assign url = include.url | replace: "%20", "\ " %}
             {% assign url = url | replace: "./", page.url %}
-            {% if include.preset and include.preset != "" %}
-                {% assign preset = "default" %}
-            {% else %}
-                {% assign preset = "jpt-webp" %}
-            {% endif %}
             {% picture 
-                jpt-webp
+                lazy
                 "{{ url }}"
-                 --alt '{{ include.caption }}' 
-                 --img %}
+                 --alt '{{ include.caption }}' %}
         {% endif %}
     {% if include.link and include.link != '' %}
         </a>

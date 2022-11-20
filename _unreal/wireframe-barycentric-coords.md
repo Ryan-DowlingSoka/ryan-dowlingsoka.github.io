@@ -16,7 +16,7 @@ So you want to make a fancy wireframe material so you do some internet searching
 {% include bookmark.html
     url="https://catlikecoding.com/unity/tutorials/advanced-rendering/flat-and-wireframe-shading/"
     author="Cat Like Coding"
-    image="https://catlikecoding.com/unity/tutorials/advanced-rendering/flat-and-wireframe-shading/tutorial-image.jpg"
+    image="/assets/images/bookmarks/tutorial-image.jpg"
     icon="https://catlikecoding.com/catlike-coding-logo.svg"
     title="Flat and Wireframe Shading"
     description="This tutorial covers how to add support for flat shading and showing the wireframe of a mesh. It uses advanced rendering techniques and assumes you're familiar with the material covered in the Rendering series." %}

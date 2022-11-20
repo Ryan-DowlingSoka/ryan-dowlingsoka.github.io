@@ -32,10 +32,13 @@
     "IE 9"
   ],
   "scripts": {
-    "uglify": "uglifyjs assets/js/plugins/wheelzoom.js assets/js/plugins/lity.js assets/js/plugins/jquery.smooth-scroll.js assets/js/plugins/table-of-contents.js assets/js/main.js -c -m -o assets/js/main.min.js",
+    "uglify": "uglifyjs assets/js/plugins/masonry.pkgd.min.js assets/js/plugins/lazysizes.min.js assets/js/plugins/wheelzoom.js assets/js/plugins/lity.js assets/js/plugins/jquery.smooth-scroll.js assets/js/plugins/table-of-contents.js assets/js/main.js -c -m -o assets/js/main.min.js",
     "add-banner": "node banner.js",
     "watch:js": "onchange \"assets/js/**/*.js\" -e \"assets/js/main.min.js\" -- npm run build:js",
     "build:js": "npm run uglify && npm run add-banner"
   },
-  "main": "index.js"
+  "main": "index.js",
+  "dependencies": {
+    "lazysizes": "^5.3.2"
+  }
 }
