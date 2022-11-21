@@ -30,13 +30,18 @@ categories: about
 
 ## 🎮 Games
 
-<div style="display:flex; flex-wrap:wrap" markdown="1">
+<div class="entries-grid-colcade" data-colcade="columns: .entry-col, items: .resume-game" >
+    <div class="entry-col entry-col--1"></div>
+    <div class="entry-col entry-col--2"></div>
 
 {%- for game in site.data.resume.games -%}
 
-<div markdown="1" class="flex-resume-games">
+<div markdown="1" class="resume-game" style="height:250px">
 
-![{{game.title}}](../assets/images/resume/{{game.image}}){: .align-left}
+{% capture image %}/assets/images/resume/{{game.image}}{% endcapture %}
+{% include image.html url=image alt=game.title %}{: .align-left}
+
+<br/>
 
 ### {{game.title}}
 {: .no-margin}

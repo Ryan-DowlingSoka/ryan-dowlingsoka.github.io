@@ -9,7 +9,7 @@ image:
 
 > Learn how to use vertex animation to make pendulum motion for hanging environmental props or vegetation.
 
-{% include video.html video="./at_hivebusters.mp4" %}
+{% include video.html video="./at_hivebusters.mp4" %}{: .align-center}
 
 *A small segment of the Gears 5: Hivebusters DLC using the techniques in this blog post.*
 
@@ -42,13 +42,13 @@ The behavior of a pendulum seems complex but it can be broken down into a few pa
 
 First there is the primary rotation. This is the behavior of the pendulum in a vacuum. nothing causes the pendulum to slow down along its length, so the whole thing rotates as if it were a rigid rod. In a vacuum, the speed of the pendulum on earth would be directly tied to how much it rotates. But, no one cares about facts and no one wants a pendulum in a vacuum, so screw that. We will always just pick a good looking believable speed.
 
-{% include video.html video="./at_tut_hanging_rotate.mp4" %}
+{% include video.html video="./at_tut_hanging_rotate.mp4" %}{: .align-center}
 
 First we need to just get a sine wave going, we need to get values for rotating back and forth.
 
 For convenience, and because we'll need this same setup a few times, I've made a function just to wrap a sine wave and do some period and offset functionality. In this case it is called **tutorial_wave**.
 
-![./at_tut_wave.png](./at_tut_wave.png)
+{% include image.html url="./at_tut_wave.png" alt="./at_tut_wave.png" link="./at_tut_wave.png" %}{: .align-center}
 
 Really simple stuff, but lets break it down. We take time and multiply it by an optional Wave Speed (this changes the frequency and period of the wave, where higher numbers mean it will oscillate faster) and add an optional Wave Offset to that time value too. We put that into a sine (set to the unreal default of period == 1 second) and multiply the result by 0.5
 
@@ -56,19 +56,19 @@ That last multiply is just for convenience, but the reason I choose to do this i
 
 This isn't that important, and you can skip this step, but I prefer to just do it here.
 
-![./at_rotation.png](./at_rotation.png)
+{% include image.html url="./at_rotation.png" alt="./at_rotation.png" link="./at_rotation.png" %}{: .align-center}
 
 This gets hooked up into our material like so, we take some parameter values for the wave speed and offset, (more on wave offset later) and multiply the output of the wave by another material parameter, Bend Amount. We then add a Bend Offset (optional, and for heavy wind scenarios, more on that later too,) and move on with our lives. This value will go into a Rotate About Axis node.
 
 I've also wrapped the Rotate About Axis expression in a material function to help with adding rotations together.
 
-![./at_tut_rotate.png](./at_tut_rotate.png)
+{% include image.html url="./at_tut_rotate.png" alt="./at_tut_rotate.png" link="./at_tut_rotate.png" %}{: .align-center}
 
 Rotate About Axis was designed to output the delta from the Position input to the new rotated location. This means you can't just plug it directly into another rotate about axis, you need to add the positions together again. It also means that if you are trying to use the rotated position and compare it against a world-space location you will again need to add the output together with the starting position. It can take a bit to wrap your head around, but following this pattern makes it functionally similar to composing multiple rotation matrices together.
 
 Lets take a look at the simplified setup:
 
-![./at_tut_simple.png](./at_tut_simple.png)
+{% include image.html url="./at_tut_simple.png" alt="./at_tut_simple.png" link="./at_tut_simple.png" %}{: .align-center}
 
 The position input will be our absolute world position, the pivot point will be the generated ObjectPivotPoint function (This is 0,0,0 transformed from Local Space to World Space). We take a Wind Direction parameter (this could be from anywhere) and cross it with the up vector. I'm using safe normalize to protect against someone putting in 0,0,0 and honestly: you should too. Dividing by zero is bad, avoid it, or be like me in the last week before shipping a title scouring material functions for why your foliage is exploding.
 
@@ -84,11 +84,11 @@ An interesting fact about air-resistance is that the amount of force the air exe
 
 Again, with this very simplistic setup, you could probably be all fancy and accurate about it, but no one wants that, so we are going to cheat. We will just make the end of the pendulum lag behind the pivot by offsetting it's time in the sine wave.
 
-{% include video.html video="./at_tut_hanging_air_resist.mp4" %}
+{% include video.html video="./at_tut_hanging_air_resist.mp4" %}{: .align-center}
 
 What is especially fun about this method is that they way you determine how much lag to contribute can create really trippy effects, and change the feeling of the materials of the object substantially. This pig now looks like it is made of a a goopy sponge instead of a hard object. Gross. But also.... awesome. Technically, we are breaking volume preservation with this, since the rotations of the tips don't take into account the reduced rotation of the mesh above it. But in this case, no one has ever complained. :P
 
-![./at_tut_wave_offset.png](./at_tut_wave_offset.png)
+{% include image.html url="./at_tut_wave_offset.png" alt="./at_tut_wave_offset.png" link="./at_tut_wave_offset.png" %}{: .align-center}
 
 This is where the Wave Offset from before comes in. By taking a bend mask (in this case stored in the red vertex color channel) we can multiply this by an arbitrary offset and add it to the time that is passed into the sine wave.
 
@@ -98,11 +98,11 @@ So far the alignment of the rotation has been pretty straightforward. There isn'
 
 To simulate this effect we will take the angle of rotation we are using for the rotation, and offset it a bit with a different wave. I prefer the figure-eight types, so that is what I am creating here, but ovals are also super plausible with similar setups.
 
-{% include video.html video="./at_tut_hanging_cross_rotation.mp4" %}
+{% include video.html video="./at_tut_hanging_cross_rotation.mp4" %}{: .align-center}
 
 In the simple version we just use the cross product of the up vector and the wind direction, but that only gives us one angle. The trick to create this figure eight like behavior is to oscillate the rotation axis between the wind direction and the cross product of the wind direction and the up vector.
 
-![./at_rotation_figure_eight.png](./at_rotation_figure_eight.png)
+{% include image.html url="./at_rotation_figure_eight.png" alt="./at_rotation_figure_eight.png" link="./at_rotation_figure_eight.png" %}{: .align-center}
 
 This is a second wave, with a small time offset (half the sine wave period) and a reduction of the wave speed (but pulling off the Wave Speed parameter).
 
@@ -114,15 +114,15 @@ Which brings us to our next super important (in my opinion, the most important) 
 
 Air resistance has one more major effect on a pendulum, and that is turbulence. Air isn't uniform, there are eddies, air flow, movement, and other real science words. In this case it just causes turbulence. You can add turbulence a ton of different ways, but I find the most believable looking way with pendulum motion is just to add some local twisting to the chain. By layering this twisting with the other components  you can create a really believable look of turbulence affecting the pendulum.
 
-{% include video.html video="./at_tut_hanging_twisting.mp4" %}
+{% include video.html video="./at_tut_hanging_twisting.mp4" %}{: .align-center}
 
 Taking a look at the setup, first thing we need is a different wave:
 
-![./at_twist.png](./at_twist.png)
+{% include image.html url="./at_twist.png" alt="./at_twist.png" link="./at_twist.png" %}{: .align-center}
 
 This twisting wave is like the bending wave, outputting a total angle. The lag is also similar, it is done by multiplying the bend mask (R channel) against the Twist Wave Offset. In this case though, you might want to use higher numbers, since you might want a few twists throughout the wave.
 
-![./at_twist_rot_combine.png](./at_twist_rot_combine.png)
+{% include image.html url="./at_twist_rot_combine.png" alt="./at_twist_rot_combine.png" link="./at_twist_rot_combine.png" %}{: .align-center}
 
 This gets plugged into the **tutorial_rotate** again, only this time the normalized rotation axis is set to the up vector. The pivot point is the same, though because the up vector is **(0,0,1)** the **Z** value doesn't matter at all. As a note, if you want to be able to rotate your mesh, this isn't going to work, you'll need to transform the up vector into world space first.
 
@@ -149,7 +149,7 @@ An unfortunate thing about unreal is that by default we don't have access to the
 
 This isn't a big deal, and even running the operations in the pixel shader wouldn't be the worst, just wasteful. If I cared more I would take look in pix or render-doc and confirm whether or not we are saving those sweet sweet cycles, but really.... I don't care that much.
 
-![./at_normals.png](./at_normals.png)
+{% include image.html url="./at_normals.png" alt="./at_normals.png" link="./at_normals.png" %}{: .align-center}
 
 The main difference between updating the normals and updating the positions, is that instead of using the world position and the pivot of the whole chain, we use the vertex normal and a pivot of 0,0,0. 
 
@@ -161,7 +161,7 @@ You can blend it with a tangent space normal map if you do the transform by usin
 
 There is a simpler way, that is cheaper too, that does have some drawbacks. But I think I would be remiss to not mention it here.
 
-{% include video.html video="./at_tut_hanging_ddx_ddy.mp4" %}
+{% include video.html video="./at_tut_hanging_ddx_ddy.mp4" %}{: .align-center}
 
 Taking the DDX and crossing it with the DDY of the Absolute World Position (after shader offsets) returns a normalized vector for each face.
 
@@ -178,15 +178,15 @@ The obvious issue is facetted normals. The DDX cross DDY method simply can't sup
 
 When dealing with any form of animation, it is unlikely you want all your hanging pendulums to be in sync with each other (although that could be quite surreal in the right circumstances).
 
-{% include video.html video="./at_tut_hanging_lots_of_pigs_in_sync.mp4" %}
+{% include video.html video="./at_tut_hanging_lots_of_pigs_in_sync.mp4" %}{: .align-center}
 
 *This is definitely what you are here for, right?*
 
 One easy way to add variation is to offset the time cycle for each instance based on their world position (this can also be useful to approximate wind gusts, but that is for another blogpost.)
 
-{% include video.html video="./at_tut_hanging_lots_of_pigs.mp4" %}
+{% include video.html video="./at_tut_hanging_lots_of_pigs.mp4" %}{: .align-center}
 
-![./at_variations.png](./at_variations.png)
+{% include image.html url="./at_variations.png" alt="./at_variations.png" link="./at_variations.png" %}{: .align-center}
 
 The XY components of the Object Position are as the location example for a Blue Noise RGB texture. The results are multiplied by an arbitrary value to create an arbitrary offset in time, and added to a global time.That global time is also multiplied by this same noise value but linearly interpolated between 0.75 and 1.0. By scaling time in this way different variations will have different speeds, creating additional variation.
 
@@ -199,7 +199,7 @@ The new scaled and modified time values are then split by component and each sen
 
 ## Heavy Wind
 
-{% include video.html video="./at_tut_hanging_lots_of_pigs_in_heavy_wind.mp4" %}
+{% include video.html video="./at_tut_hanging_lots_of_pigs_in_heavy_wind.mp4" %}{: .align-center}
 
 In really really strong winds, the pendulum may never be able to return to the original center. The **Bend Offset** parameter from before can be used to help with this. The main trick is to lessen the total amount of bending (meaning a smaller, **Bend Amount**, but an increased **Bend Offset,** so the average position of the pendulum is always in a bent over position.
 
@@ -213,15 +213,15 @@ Something I've left out is the concept of stiffness. With the above examples thi
 
 The problem with this type of masking is that it breaks all forms of volume conservation. Now, the tips of the mesh will be rotating more than the base of the mesh. This creates shearing. Luckily with some hackery we can kind-a fix that problem too.
 
-{% include video.html video="./at_tut_hanging_shearing_correction.mp4" %}
+{% include video.html video="./at_tut_hanging_shearing_correction.mp4" %}{: .align-center}
 
 The basic stiffness setup is quite simple. Lets take the Bend Stiffness parameter and use it as the exponent of a power on the bend mask. This is the core of adding stiffness, a value of 1.0 creates a linear falloff of the stiff masking, a value of 0.0 results in no masking of the rotation.
 
-![./at_tut_wave_stiffness.png](./at_tut_wave_stiffness.png)
+{% include image.html url="./at_tut_wave_stiffness.png" alt="./at_tut_wave_stiffness.png" link="./at_tut_wave_stiffness.png" %}{: .align-center}
 
 Fixing the shearing is a bit more complicated, and a bit of a hack.
 
-![./at_tut_shearing_compensation.png](./at_tut_shearing_compensation.png)
+{% include image.html url="./at_tut_shearing_compensation.png" alt="./at_tut_shearing_compensation.png" link="./at_tut_shearing_compensation.png" %}{: .align-center}
 
 Where in all the simple versions we just used the **ObjectPivotPoint**, now we need to do something a little more complicated.
 

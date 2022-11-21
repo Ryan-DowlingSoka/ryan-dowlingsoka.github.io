@@ -59,7 +59,7 @@ Use this following table for an unscientific approach to understanding how much 
 
 ## Triplanar, but with conditions
 
-![The highest quality version in this blog post, but slightly faster than the standard version.](./Untitled.png)
+{% include image.html url="./Untitled.png" alt="The highest quality version in this blog post, but slightly faster than the standard version." %}
 
 The highest quality version in this blog post, but slightly faster than the standard version.
 
@@ -84,7 +84,7 @@ Triplanar mapping is most succinctly summed up in Inigo Quilez’s article on [B
 
 So lets take a look at that. The first thing we need to solve is how to sample a texture (or textures) conditionally in unreal. You may have seen the If node before:
 
-[![Untitled](./Untitled%202.png)](./Untitled%202.png)
+{% include image.html url="./Untitled%202.png" alt="Untitled" link="./Untitled%202.png" %}
 {: .align-center}
 
 Unfortunately the hlsl for this section that is generated is converted into this:
@@ -106,14 +106,14 @@ We need to turn to the custom node.
 
 ### MF_&#8203;ConditionalTextureSample_&#8203;Color_&#8203;SharedWrapped
 
-[![Untitled](./Untitled%203.png)](./Untitled%203.png)
+{% include image.html url="./Untitled%203.png" alt="Untitled" link="./Untitled%203.png" %}
 {: .align-center}
 
 The need to be able to conditionally sample a texture makes things inconvenient. Previously we could change shared samplers, or texture type (color vs normal map etcetera) on the node, but now we are going to do the **texture sampling in a custom node**, and, so some of the settings the **TextureSample** node used to handle for us we now are handling explicitly. Switching between shared and texture samplers, compression/unpacking types, derivatives and mip biases, all of those we now need to reimplement because we want to make sure we early out of the function with a conditional.
 
 This function’s job is to replace the texture sample node completely with a nested custom function that wraps the sample with an `if(SampleMask > 0.0001)`   .
 
-[![Untitled](./Untitled%204.png)](./Untitled%204.png)
+{% include image.html url="./Untitled%204.png" alt="Untitled" link="./Untitled%204.png" %}
 {: .align-center}
 
 ```glsl
@@ -135,14 +135,14 @@ If you pass in a **Texture2DObject** into a custom node it automatically creates
 The `* View.MaterialTextureDerivativeMultiply` code comes from what Unreal does automatically whenever you sample with explicit derivatives, this allows you to scale the texture derivatives up and down across the whole scene.
 {: .notice--primary}
 
-[![Untitled](./Untitled%205.png)](./Untitled%205.png)
+{% include image.html url="./Untitled%205.png" alt="Untitled" link="./Untitled%205.png" %}
 {: .align-center}
 
 In the project files I have also included a non-shared sampler version of this function if you need to use the texture asset’s texture sampler.
 
 ### MF_&#8203;ConditionalTextureSample_&#8203;Normal_&#8203;SharedWrapped
 
-[![Untitled](./Untitled%206.png)](./Untitled%206.png)
+{% include image.html url="./Untitled%206.png" alt="Untitled" link="./Untitled%206.png" %}
 {: .align-center}
 
 The former would cover sRGB and RGB textures no problem, but **TangentSpaceNormal** textures require a bit of extra work. Namely we need to call `UnpackNormalMap()` after sampling. We could do this in the graph, but we might as well make sure that bit of math is nested in the conditional too.
@@ -163,7 +163,7 @@ return OutTextureValue;
 
 A side benefit of wrapping your samples in a custom node is that unlike the normal texture sample node, you now don’t have to do anything different between **Normalmap** compressed textures and your **BC7**compressed textures. As long as your packed normal maps put the Normal data in **RG** then the result will be the same.
 
-[![Untitled](./Untitled%207.png)](./Untitled%207.png)
+{% include image.html url="./Untitled%207.png" alt="Untitled" link="./Untitled%207.png" %}
 {: .align-center}
 
 Since you might sometimes have valuable data in BA, this node outputs the **PackedRGBA** values so you can keep those around if you need them. So in a typical **Normal(RG) Metallic(B) Roughness(A)** setup, you’d read the RGB output pin for the unpacked normal, and then component mask **BA** to get Metallic and Roughness respectively.
@@ -174,7 +174,7 @@ Material layers aren’t just individual textures, they are often a combination 
 
 Here is what my non-metal megascans surface packing function looks like:
 
-[![Untitled](./Untitled%208.png)](./Untitled%208.png)
+{% include image.html url="./Untitled%208.png" alt="Untitled" link="./Untitled%208.png" %}
 {: .align-center}
 
 These container surface functions are set up to be convenient to be used as one offs, but expect you to provide data. So while they will calculate the DDX and DDY of the UV input for you if you don’t provide your own, its encouraged to fill the inputs at the outer level so that you maximize sharing calculations.
@@ -184,21 +184,21 @@ These container surface functions are set up to be convenient to be used as one 
 
 In my triplanar material function the usage looks like this:
 
-[![Untitled](./Untitled%209.png)](./Untitled%209.png)
+{% include image.html url="./Untitled%209.png" alt="Untitled" link="./Untitled%209.png" %}
 {: .align-center}
 
 The reroutes are all for cleanliness, check the large graph overview at the top to see where each comes from.
 
 ### MF_&#8203;Triplanar_&#8203;TransformNormals_&#8203;Layer
 
-[![Untitled](./Untitled%2010.png)](./Untitled%2010.png)
+{% include image.html url="./Untitled%2010.png" alt="Untitled" link="./Untitled%2010.png" %}
 {: .align-center}
 
 This is a convenience node actually, that takes in material attributes instead of a normal directly so we can use it in that upper level.
 
 The node we actually care about is **MF_Triplanar_TransformNormals**
 
-[![Untitled](./Untitled%2011.png)](./Untitled%2011.png)
+{% include image.html url="./Untitled%2011.png" alt="Untitled" link="./Untitled%2011.png" %}
 {: .align-center}
 
 So now we’ve sampled the textures but we need to make sure the normals are in the right space. This is what [Ben Golus’s](https://bgolus.medium.com/normal-mapping-for-a-triplanar-shader-10bf39dca05a#d715) medium post is all about, and he does a better job explaining the why then I’m going to bother trying to do, so go there if you want to know the why.
@@ -256,7 +256,7 @@ This makes this function work for all of the different axis which will be very i
 
 What this function is doing, however, is taking the XYZ direction in tangent space of the normal, and is swizzle transforming it into their respective world axes. Golus’s post goes into it much better than me, so again, go there.
 
-![Untitled](./transformed_normals.gif)
+{% include image.html url="./transformed_normals.gif" alt="Untitled" responsive=false %}
 
 It can be hard to show why this is so important. Without this node the normals are transformed by their triangle face’s tangent space, this creates seams, but more importantly it makes the normals just wrong. In the above gif there is a light on the left side of the screen. Without the transform node the shadows are all over the place and there is a huge seam at the UV shell borders.
 
@@ -264,15 +264,15 @@ This is extremely important because if you don’t do this transform: your work 
 
 ### MF_&#8203;Triplanar_&#8203;Coordinates
 
-[![Untitled](./Untitled%2013.png)](./Untitled%2013.png)
+{% include image.html url="./Untitled%2013.png" alt="Untitled" link="./Untitled%2013.png" %}
 {: .align-center}
 
 We almost have everything we need. But there is a major step we’ve skipped, and that is getting the coordinate planes for each axes. This is trivial to do, but there is a minor optimization we can do so it is worth calling out.
 
-[![Untitled](./Untitled%2014.png)]./Untitled%2014.png
+{% include image.html url="./Untitled%2014.png" alt="Untitled" %}]
 {: .align-center}
 
-[![Untitled](./Untitled%2015.png)]./Untitled%2015.png
+{% include image.html url="./Untitled%2015.png" alt="Untitled" %}]
 {: .align-center}
 
 ```glsl
@@ -298,22 +298,22 @@ Except that deep inside iquilez’s article: [Biplanar Mapping from 2020](https:
 
 This function takes in a world position, which is where any offsetting or scaling should be done. For example:
 
-[![Untitled](./Untitled%2016.png)](./Untitled%2016.png)
+{% include image.html url="./Untitled%2016.png" alt="Untitled" link="./Untitled%2016.png" %}
 {: .align-center}
 
 ### MF_&#8203;Triplanar_&#8203;BlendCoefficients
 
 Getting the different blend weights for each UV plane of the triplanar mapping we do through another function:
 
-[![Untitled](./Untitled%2017.png)](./Untitled%2017.png)
+{% include image.html url="./Untitled%2017.png" alt="Untitled" link="./Untitled%2017.png" %}
 {: .align-center}
 
-[![Untitled](./Untitled%2018.png)](./Untitled%2018.png)
+{% include image.html url="./Untitled%2018.png" alt="Untitled" link="./Untitled%2018.png" %}
 {: .align-center}
 
 This is another bit of code taken directly from Golus:
 
-[![Untitled](./Untitled%2019.png)](./Untitled%2019.png)
+{% include image.html url="./Untitled%2019.png" alt="Untitled" link="./Untitled%2019.png" %}
 {: .align-center}
 
 ```hlsl
@@ -344,13 +344,13 @@ It is a huge pain, one that I intend to rectify at some point in the future.
 
 Since we are using this function, which notably only takes 2 input layers, we need to use the blend function twice. And when we handle the second one we need to make sure that we don’t over blend away the first layers:
 
-[![Untitled](./Untitled%2021.png)](./Untitled%2021.png)
+{% include image.html url="./Untitled%2021.png" alt="Untitled" link="./Untitled%2021.png" %}
 
 Setting the A Mask Weight to 1.0 ensures we don’t reduce the total luminance, since those values were already scaled previously.
 
 ## Triplanar, but with dithering
 
-![Untitled](./Untitled%2022.png)
+{% include image.html url="./Untitled%2022.png" alt="Untitled" %}
 
 Here is the thing about triplanar, for each texture you need you are sampling three times. As layers increase this can get out of hand fast. 
 
@@ -466,10 +466,10 @@ The built in DitherTemporalAA function in unreal can work in a pinch too, but it
 
 <div class="align-flex" markdown="1">
 
-![Untitled](./Untitled%2027.png)
+{% include image.html url="./Untitled%2027.png" alt="Untitled" %}
 {: .max-width-30}
 
-![Untitled](./Untitled%2028.png)
+{% include image.html url="./Untitled%2028.png" alt="Untitled" %}
 {: .max-width-100}
 
 </div>
@@ -478,10 +478,10 @@ In more recent UE versions a new TemporalSobol node has also been introduced whi
 
 <div class="align-flex" markdown="1">
 
-![Untitled](./Untitled%2029.png)
+{% include image.html url="./Untitled%2029.png" alt="Untitled" %}
 {: .max-width-30}
 
-![Untitled](./Untitled%2030.png)
+{% include image.html url="./Untitled%2030.png" alt="Untitled" %}
 {: .max-width-100}
 
 </div>
@@ -514,7 +514,7 @@ return  frac(52.9829189f * frac(0.06711056f*pixel.x + 0.00583715f*pixel.y));
 ```
 {: .max-width-100 }
 
-![Untitled](./Untitled%2032.png)
+{% include image.html url="./Untitled%2032.png" alt="Untitled" %}
 
 </div>
 
@@ -522,7 +522,7 @@ Secondly, we need to get a frame value. This isn’t exposed anywhere in any mat
 
 <div class="align-flex" markdown="1">
 
-![Untitled](./Untitled%2033.png)
+{% include image.html url="./Untitled%2033.png" alt="Untitled" %}
 
 ```hlsl
 View.StateFrameIndex;
@@ -532,7 +532,7 @@ View.StateFrameIndex;
 
 ## Triplanar, but only two (Biplanar actually)
 
-![Untitled](./Untitled%2034.png)
+{% include image.html url="./Untitled%2034.png" alt="Untitled" %}
 {: .align-center}
 
 Dither has potential issues with GPU cache thrashing *(or something something mumble muble)*, so a different version was proposed by  [Inigo Quilez](https://iquilezles.org/articles/biplanar/) where only the two highest weighted planes are used instead of all three:
@@ -559,10 +559,10 @@ Structurally this follows the original Triplanar setup, but notably with only on
 
 ### MF_&#8203;BiplanarPlane_&#8203;Selection
 
-[![Untitled](./Untitled%2036.png)](./Untitled%2036.png)
+{% include image.html url="./Untitled%2036.png" alt="Untitled" link="./Untitled%2036.png" %}
 {: .align-center}
 
-[![Untitled](./Untitled%2037.png)](./Untitled%2037.png)
+{% include image.html url="./Untitled%2037.png" alt="Untitled" link="./Untitled%2037.png" %}
 {: .align-center}
 
 As with most of these functions, this comes down to a Custom node. Refer to Quilez’s article for the reasons **why**, but here we are selecting two sets of UVs and Derivatives, one for the primary sample and one for the secondary sample.
@@ -657,7 +657,7 @@ Download the project files here:
 </li>
 <li markdown="1">
 Extract these into your content folder. Everything is arranged inside of the developers folder  
-![Untitled](./Untitled%2038.png)
+{% include image.html url="./Untitled%2038.png" alt="Untitled" %}
 
 </li>
 <li markdonw="1">
@@ -672,13 +672,13 @@ This project is not designed to be ready to slide instantly into any production,
 However, it is meant to be a good starting point, so in that regard:
 
 1. Start by looking at the Examples
-    1. ![Untitled](./Untitled%2039.png)  
+    1. {% include image.html url="./Untitled%2039.png" alt="Untitled" %}  
     **ExampleMaterial_Collapsed** uses **Layer_** functions which wrap everything you’ve seen above. These are the most plug-and-play there is.
     2. **ExampleMaterial_Expanded** uses the same logic (more or less) but where the contents of those **Layer** functions has been brought out. This can help you quickly compare the differences between the different methods.
     3. These instances have static switches for each method, with the default being Triplanar.
 
 2. Use the PerfTest materials on your target to see if even in a stripped down case there is any benefit. **This is not sufficient to know for sure, but it is a good starting point**.
-    1. ![Untitled](./Untitled%2040.png)  
+    1. {% include image.html url="./Untitled%2040.png" alt="Untitled" %}  
     This material has a checkbox for each of the different types, including triplanar with out the conditionals. It also samples the layers multiple times with different world positions to try to get an idea for the worst case. This is not representative of your actual materials/textures and does not account for a different texture set at each layer, but it gives you a decent starting point and is easily modified to build your own tests.
 3. Change or replace the **MF_SampleSurface_Megascans** it is probable you have a separate set of texture packing requirements, the idea is that you would make your own (or modify mine in place) function that wraps all the texture packing.
 

@@ -248,11 +248,12 @@
 
   .entry-col
   {
+    width: 100%;
     float: left;
   }
 
   .entry-col--1{
-    display:hidden;
+    display:none;
   }
 
   .entry-col--2>.entry

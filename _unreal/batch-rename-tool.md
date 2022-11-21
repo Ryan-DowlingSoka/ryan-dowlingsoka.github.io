@@ -27,7 +27,7 @@ It has a few goals:
 
 # Episode 1 - General Layout
 
-{% include youtube.html aspect_ratio="1.777" video="FQO45KTKOhI" %}
+{% include youtube.html aspect_ratio="1.777" video="FQO45KTKOhI" %}{: .align-center}
 
 This episode covers the general layout of the tool, including the powerful **Details Views** and **Dynamic Entry Box**.
 
@@ -35,11 +35,11 @@ This episode covers the general layout of the tool, including the powerful **Det
 
 💡 In the above video we setup a **Details View**, which is one of the most powerful widgets in the Editor Utility Widget toolset, but one that is a bit un-intuitive.
 
-![Untitled](./Untitled.png)
+{% include image.html url="./Untitled.png" link=true alt="Untitled" %}{: .align-center}
 
 It works by displaying the details (same as in the world outliner for example) of any given **UObject**. But you must first assign the **UObject** in the graph. Doing so in **Preconstruct** will even show you what the details view will look like in the **Design View**.
 
-![Untitled](./Untitled%201.png)
+{% include image.html url="./Untitled%201.png" link=true alt="Untitled" %}{: .align-center}
 
 This powerful widget can be customized, to filter by category or by names of individual parameters.
 
@@ -55,11 +55,11 @@ It isn’t perfect though, the results aren’t virtualized, meaning that if you
 
 If you need to work with hundreds to thousands of items you should use the **List View** instead, which is a bit more of a hassle to deal with. In those cases you will need to create a widget that you add the **User Object List Entry** interface to.
 
-![Untitled](./Untitled%202.png)
+{% include image.html url="./Untitled%202.png" link=true alt="Untitled" %}{: .align-center}
 
 After adding the interface, you need to ‘massage’ the data from the model to the view, since the elements are virtualized they can’t store information about themselves directly and you must implement the **On List Item Object Set** interface event to get access to the data the item is currently showing.
 
-![Untitled](./Untitled%203.png)
+{% include image.html url="./Untitled%203.png" link=true alt="Untitled" %}{: .align-center}
 
 For many tools, this level of complexity isn’t necessary or worth it, but know your use-case. If this rename tool needs to be able to work on a world’s worth of objects at once the **Dynamic Entry Box** isn’t going to cut it, so think ahead and implement the **List View** version instead.
 
@@ -67,7 +67,7 @@ For many tools, this level of complexity isn’t necessary or worth it, but know
 
 ## Episode 2 - Blueprints and Python
 
-{% include youtube.html aspect_ratio="1.777" video="-ai64uouOkI" %}
+{% include youtube.html aspect_ratio="1.777" video="-ai64uouOkI" %}{: .align-center}
 
 This episode covers the majority of the code behind, including the find and replace algorithm written in python.
 
@@ -122,7 +122,7 @@ else:
 
 ## Episode 3 - Finishing Up & Actor Actions
 
-{% include youtube.html aspect_ratio="1.777" video="Vw5oXF6n8hk" %}
+{% include youtube.html aspect_ratio="1.777" video="Vw5oXF6n8hk" %}{: .align-center}
 
 This episode covers the last bit of blueprint scripting (the actual renaming), and adds a sheen of polish to the experience. It also covers Asset Actions and Actor Actions.
 

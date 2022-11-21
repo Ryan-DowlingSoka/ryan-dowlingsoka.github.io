@@ -9,7 +9,7 @@ image:
 
 > Learn how to create a wireframe shader using barycentric coordinates and geometry scripting.
 
-{% include video.html video="./wireframe_tool.mp4" %}
+{% include video.html video="./wireframe_tool.mp4" %}{: .align-center}
 
 So you want to make a fancy wireframe material so you do some internet searching. Maybe you come across Cat Like Coding’s excellent tutorial on the subject for unity:
 
@@ -19,7 +19,7 @@ So you want to make a fancy wireframe material so you do some internet searching
     image="/assets/images/bookmarks/tutorial-image.jpg"
     icon="https://catlikecoding.com/catlike-coding-logo.svg"
     title="Flat and Wireframe Shading"
-    description="This tutorial covers how to add support for flat shading and showing the wireframe of a mesh. It uses advanced rendering techniques and assumes you're familiar with the material covered in the Rendering series." %}
+    description="This tutorial covers how to add support for flat shading and showing the wireframe of a mesh. It uses advanced rendering techniques and assumes you're familiar with the material covered in the Rendering series." %}{: .align-center}
 
 
 But you aren’t using Unity, you are using Unreal, and at the time of this post, we don’t have access to geometry shaders easily.
@@ -36,7 +36,7 @@ Learn how to make your own below, or get my version from my [github](https://git
 
 First you need to create an asset action, make sure it is an Editor Utility Blueprint by creating it through the submenu.
 
-[![Untitled](./Untitled.png)](./Untitled.png)
+{% include image.html url="./Untitled.png" alt="Untitled" link="./Untitled.png" %}{: .align-center}
 Override the GetSupportedClass function and set it to only return StaticMesh.
 
 We are going to make two new functions. The exposed function **Add Barycentric UVs**, and an internal function **AddBarycentricUVs_Internal.**
@@ -45,10 +45,10 @@ We are going to make two new functions. The exposed function **Add Barycentric U
 
 This function will be exposed to the right-click menu on static meshes, so give it a good description. Because we want the user to be able to change which UV Set the barycentric uvs will be added to, make sure you also add an integer input value named **Target UV Set.**
 
-[![Untitled](./Untitled%201.png)](./Untitled%201.png)
+{% include image.html url="./Untitled%201.png" alt="Untitled" link="./Untitled%201.png" %}{: .align-center}
 The function itself is pretty simple, it simply gets the selected assets, loops over them and gets all the Static Mesh assets in the selection set, and calls the internal function on them.
 
-[![Untitled](./Untitled%202.png)](./Untitled%202.png)  
+{% include image.html url="./Untitled%202.png" alt="Untitled" link="./Untitled%202.png" %}{: .align-center}  
 [Add Barycentric UVs \| Click here to get this graph.](https://dev.epicgames.com/community/snippets/gxK/unreal-engine-add-barycentric-uvs)
 
 ## AddBarycentricUVs_Internal
@@ -61,15 +61,15 @@ This function does all the heavy lifting. But the premise is pretty straight for
     - Set Each Triangle to have UVs of (0,0),(1,0),(0,1) [Order doesn’t matter for this.]
     - Copy the Dynamic Mesh back into the LOD of the selected mesh.
 
-[![Untitled](./Untitled%203.png)](./Untitled%203.png)  
+{% include image.html url="./Untitled%203.png" alt="Untitled" link="./Untitled%203.png" %}  
 Get the number of LODS, loop from 0 to 1-Number of Lods.
 
-[![Untitled](./Untitled%204.png)](./Untitled%204.png)  
+{% include image.html url="./Untitled%204.png" alt="Untitled" link="./Untitled%204.png" %}  
 Request Dynamic Mesh from the Dynamic Mesh Pool.
 Copy the LOD from the Static Mesh into the Dynamic Mesh.
 If the number of UVs is less than or equal to the target UV number then add a new UV set.
 
-[![Untitled](./Untitled%205.png)](./Untitled%205.png)  
+{% include image.html url="./Untitled%205.png" alt="Untitled" link="./Untitled%205.png" %}  
 Get all the triangles in a triangle UV Set, store the (Length of the list -1) for another ForLoop.
 For each ID: If the ID is valid, set the UVs to (1,0) (0,1) (0,0).
 Once done, copy the dynamic mesh back into the static mesh.  
@@ -83,7 +83,7 @@ Once we have that, we can use `smoothstep` to remap these coordinates into a sha
 
 Below is the material graph, and a transcription into HLSL which may be more readable to some.
 
-[![Untitled](./Untitled%206.png)](./Untitled%206.png)
+{% include image.html url="./Untitled%206.png" alt="Untitled" link="./Untitled%206.png" %}{: .align-center}
 
 ```hlsl
 float LINE_THICKNESS = 2.0;

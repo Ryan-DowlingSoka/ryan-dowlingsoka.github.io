@@ -91,10 +91,14 @@ presets:
     markup: data_auto
     formats: [webp, original]
     noscript: true # add a fallback image inside a <noscript> tag.
-    dimensions_attributes: false
+    dimension_attributes: true
     attributes:
       img: class="lazyload" data-sizes="auto"
       source: data-sizes="auto"
+    format_quality:
+      jpg: 100
+      png: 100
+      webp: 100
 
   # This is an example of how you'd get a single generated image, a URL, and nothing else.
   direct:

@@ -1,6 +1,24 @@
+{% if include.alt and include.alt != '' %}
+    {% assign alt = include.alt %}
+{% else %}
+    {% if include.caption and include.caption != '' %}
+        {% assign alt = include.caption %}
+    {% endif %}
+{% endif %}
+
+{% if include.link %}
+    {% if include.link == true %}
+        {% assign link = include.url %}
+    {% else %}
+        {% if include.link != "" %}
+            {% assign link = include.link %}
+        {% endif %}
+    {% endif %}
+{% endif %}
+
 <figure class="{{ include.class }}">
-    {% if include.link and include.link != '' %}
-        <a href="{{ include.link }}">
+    {% if link %}
+        <a href="{{ link }}">
     {% endif %}
         {% if include.responsive == false %}
             <img src="{{ include.url }}" alt="{{ include.caption }}">
@@ -10,9 +28,9 @@
             {% picture 
                 lazy
                 "{{ url }}"
-                 --alt '{{ include.caption }}' %}
+                 --alt '{{ alt }}' %}
         {% endif %}
-    {% if include.link and include.link != '' %}
+    {% if link %}
         </a>
     {% endif %}
     {% if include.caption and include.caption != '' %}

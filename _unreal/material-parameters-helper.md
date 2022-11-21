@@ -9,7 +9,7 @@ image:
 
 > A tool to help with managing massive amounts of material parameters across numerous nested material functions.
 
-{% include youtube.html aspect_ratio="1.652777" video="M9s-ld-ldrs" %}
+{% include youtube.html aspect_ratio="1.652777" video="M9s-ld-ldrs" %}{: .align-center}
 
 > [RedTechArtTools @ Github](https://github.com/Ryan-DowlingSoka/RedTechArtTools)
 
@@ -36,7 +36,7 @@ Roughly the tool works like so:
     - This is a lot of handwritten UFunction Blueprint Wrappers. A macro would be perfect if you could make UFunctions with them, but you can’t, so a bit tedious. Could be a nice addition to the engine tbh.
 - On Save and Apply save all modified material functions and materials, and recompile the used material.
     
-    ![Untitled](./Untitled.png)
+    {% include image.html url="./Untitled.png" alt="Untitled" link=true %}{: .align-center}
     
 
 ## Blueprint Library Functions
@@ -121,7 +121,7 @@ EMaterialExpressionSetParameterValueFlags::AssignGroupAndSortPriority);
 
 🤔 If you are a discerning individual, you have spotted a flaw in this pattern. What if the expression changes after the wrapper is constructed outside of these blueprint functions?
 
-Well then things are bad, or I guess they could be. We won’t see the change in the wrapper so we might stomp over those changes. 
+Well then things are bad, or I guess they could be. We won’t see the change in the wrapper so we might stomp over those changes.
 
 Maybe we don’t need the wrapper at all.
 
@@ -190,7 +190,7 @@ As an example, I use this to sort the expressions in a way that matches their ou
 
 I chose to do a naïve sort, just a simple, go through the list and insert when it doesn’t match. You could do smarter sorts, if you want. But the number of expressions is relatively small even in the biggest uber materials, so honestly I like to keep it simple. 
 
-![Untitled](./Untitled%201.png)
+{% include image.html url="./Untitled%201.png" alt="Untitled" link=true %}{: .align-center}
 
 The function is pretty straight forward, but would be cleaner looking in C++ for sure. The algorithm can be described like this.
 
@@ -212,11 +212,11 @@ Ideally all material parameter expressions have a unique GUID. Also ideally (for
 
 Anyway the ability to fix a GUID in unreal is limited. You basically have to delete and recreate the material parameter. Somewhat a nightmare. So the tool is setup to identify the issue, and offer a button to fix it.
 
-![Untitled](./Untitled%202.png)
+{% include image.html url="./Untitled%202.png" alt="Untitled" link=true %}{: .align-center}
 
 To detect these GUIDs I loop over all the current material expressions and store their GUIDs in the set. If the GUID would be added a second time, we mark the element as having a GUID error. We don’t bother to check to see if the names match since even though it is technically alright to have the same GUID and parameter name, it is destined to become an issue later.
 
-![Untitled](./Untitled%203.png)
+{% include image.html url="./Untitled%203.png" alt="Untitled" link=true %}{: .align-center}
 
 I chose to not mark both, but just the latest one because it is a simpler pattern.
 
@@ -243,11 +243,11 @@ One of the biggest improvements to this version of the tool is that I exposed th
 
 I used the **Expandable Area** widget with the quick info in the Header, and in the Body I added **Details View**
 
-![Untitled](./Untitled%204.png)
+{% include image.html url="./Untitled%204.png" alt="Untitled" link=true %}{: .align-center}
 
 When the **List View** object is set, I set the Details View object to the Material Expression immediately.
 
-![Untitled](./Untitled%205.png)
+{% include image.html url="./Untitled%205.png" alt="Untitled" link=true %}{: .align-center}
 
 <blockquote>
 
@@ -261,7 +261,7 @@ If this were a runtime tool I would ~~*probably*~~ absolutely not do this.
 
 </blockquote>
 
-![Untitled](./Untitled%206.png)
+{% include image.html url="./Untitled%206.png" alt="Untitled" link=true %}{: .align-center}
 
 Because the details view is directly modifying the object, we get all of this great customization and settings for free. One slight tidbit. When you change the Name, Group, or Sort Priority in the details view, I do not resort the list. This is because maintaining the expansion state was going to be a bit of a pain. An improved version of this tool would detect if one of those properties changed, do the resort, and restore the expansion state so you can continue working automatically.
 
@@ -271,11 +271,11 @@ I might do that later.
 
 There are two times where the expression list might change rapidly and the tool highlights the target node.
 
-![mph.parameter_panel.main.gif](./mph.parameter_panel.main.gif)
+{% include image.html url="./mph.parameter_panel.main.gif" alt="mph.parameter_panel.main.gif" responsive=false %}{: .align-center}
 
 The first time is when the list is resorted. When the Group, Name or Sort Priority field changes I run an Update Sort Location blueprint node.
 
-![Untitled](./Untitled%207.png)
+{% include image.html url="./Untitled%207.png" alt="Untitled" link=true %}{: .align-center}
 
 Here we remove the element from the list, and re-add it with the **Add Expression Item Sorted** function from before. We re-filter the list (more on that later) too.
 
@@ -283,15 +283,15 @@ But since the list might scroll quickly, I wanted to do two things. I wanted the
 
 Importantly doing this constructs a new widget, so we lose the direct link to that widget. To get it back I put a short delay so that the element can be scrolled into view, and then loop over the currently displayed entry widgets and find the selected one. 
 
-![Untitled](./Untitled%208.png)
+{% include image.html url="./Untitled%208.png" alt="Untitled" link=true %}{: .align-center}
 
 With it found we flash the highlight (play a quick animation) and set the keyboard focus.
 
-![Untitled](./Untitled%209.png)
+{% include image.html url="./Untitled%209.png" alt="Untitled" link=true %}{: .align-center}
 
 I do a similar thing from the function list. In the function list I list all material expressions, and when you click on one of the expressions it
 
-![mph.function_list.gif](./mph.function_list.gif)
+{% include image.html url="./mph.function_list.gif" alt="mph.function_list.gif" responsive=false %}{: .align-center}
 
 The only difference here, is that with the function list, I’m not using the selected item, instead I am looping over all the expressions items to find the one with the matching Material Expression. I scroll that one into view, delay, and then play its highlight.
 
@@ -299,7 +299,7 @@ The only difference here, is that with the function list, I’m not using the se
 
 The function list serves a second purpose, hiding expressions we don’t need. There also is a search bar now. Both of these run at the same time.
 
-![Untitled](./Untitled%2010.png)
+{% include image.html url="./Untitled%2010.png" alt="Untitled" link=true %}{: .align-center}
 
 The structure of this is pretty reasonable. We create a second **Filtered List** array for the elements, and rush through all the elements of our primary list. For each expression we check the state of the **Function List** to see what the enabled state of the matching function is.
 
@@ -307,7 +307,7 @@ Once we’ve set the collapsed state based on the Function List we then process 
 
 We do this with a pretty naïve substring check. We could do some better fuzzy searching at some point.
 
-![Untitled](./Untitled%2011.png)
+{% include image.html url="./Untitled%2011.png" alt="Untitled" link=true %}{: .align-center}
 
 Notably if the filter is empty, then we treat that as the expression should be filled.
 
@@ -325,15 +325,15 @@ Another little goody is the checkbox above the function list which shows and tog
 
 I wanted the filter bar to be a capsule like the search bar in the content browser. Luckily UMG makes this super easy.
 
-![Untitled](./Untitled%2012.png)
+{% include image.html url="./Untitled%2012.png" alt="Untitled" link="./Untitled%2012.png" %}{: .align-center}
 
-![Untitled](./Untitled%2013.png)
+{% include image.html url="./Untitled%2013.png" alt="Untitled" link="./Untitled%2013.png" %}{: .align-center}
 
 ### Multiline Editable Text Boxes : Enter to Submit
 
 My default in the Multiline Editable Text Box, the Enter key adds another line. Ctrl+Enter, Shift+Enter all don’t change a thing. The widget class has a slate option to allow a modifier key for a new line, but this isn’t exposed to UMG.
 
-![mph.parameter_list.multiline.gif](./mph.parameter_list.multiline.gif)
+{% include image.html url="./mph.parameter_list.multiline.gif" alt="mph.parameter_list.multiline.gif" responsive=false link="./mph.parameter_list.multiline.gif" %}{: .align-center}
 
 I solved this by creating my own subclass. In my MultiLineEditableTextBox I added a **bShiftEnterForNewLine** property and added this to the **ModiferKeyForNewLine** slate property. 
 
@@ -377,11 +377,11 @@ This unified the behaviors between the different fields and made working with de
 
 ### Common UI Decorator Labels
 
-![Untitled](./Untitled%2014.png)
+{% include image.html url="./Untitled%2014.png" alt="Untitled" link=true %}{: .align-center}
 
 Here you might notice that the labels are very small, and *very* close to their widgets. I used the new Common UI Visual Attachment widget to place these and ensure they didn’t add extra space or padding.
 
-![Untitled](./Untitled%2015.png)
+{% include image.html url="./Untitled%2015.png" alt="Untitled" link=true %}{: .align-center}
 
 These can be a little finicky and are subject to issues if the layout changes dramatically, but are nice when things need to be tightly packed.
 

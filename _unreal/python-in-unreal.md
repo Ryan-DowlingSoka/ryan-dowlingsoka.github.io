@@ -11,8 +11,7 @@ image:
 
 A big part of being efficient when making tools, is having a good workspace setup. I’ve spent a lot of time getting my python workspace *just right,* and so hopefully I can help you not have to spend so long figuring it all out.
 
-{% include toc %}
-
+{% include toc %}{: .align-center}
 ## Setting up Unreal for Python
 
 This is just the instructions to follow from the UDN.
@@ -45,8 +44,7 @@ E:\epic\Projects\LyraStarterGame\Plugins\RyanDowlingSoka\RedTechArtTools
 ```
 {: .notice--code}
 
-![Untitled](./Untitled.png)
-
+{% include image.html url="./Untitled.png" link=true alt="Untitled" %}{: .align-center}
 My workspace is usually a stub, with just a path saying go up one level.
 
 ```json
@@ -97,12 +95,10 @@ So I need to go up five levels to get to the \epic\ folder before diving back do
 
 To check if you have the right paths, look at the bottom right corner of VSCode to see which python version is being used.
 
-![Untitled](./Untitled%201.png)
-
+{% include image.html url="./Untitled%201.png" link=true alt="Untitled" %}{: .align-center}
 To ensure you have the right path to the stub file, you can load any python file in your workspace and mouse over “import unreal” it should say (module) unreal
 
-![Untitled](./Untitled%202.png)
-
+{% include image.html url="./Untitled%202.png" link=true alt="Untitled" %}{: .align-center}
 ### Auto Formatting with Black
 
 I’ve become a huge proponent of auto-formatting. I’m not going to convince you, if you hate it, but my favorite python formatter is Black. It does a really good job and is customizable enough if you have particulars.
@@ -116,8 +112,7 @@ To setup black, start by adding the following to your settings or workspace file
 Then go to any python file and press **Shift+Alt+F**, Black will ask to install.
  
 
-![Untitled](./Untitled%203.png)
-
+{% include image.html url="./Untitled%203.png" link=true alt="Untitled" %}{: .align-center}
 Each user of the vscode workspace will have to do this.
 
 We can then setup our Black to better fit our desires. Here is my configuration (in the settings.json file) feel free to make changes based on your taste.
@@ -141,10 +136,8 @@ One of the best features of black is how it handles multi-lines, it does a great
 
 Luckily Black has a a really easy way to do this. Just add a trailing comma to any list and it will automatically convert it into a multi-line list.
 
-![Untitled](./Untitled%204.png)
-
-![Untitled](./Untitled%205.png)
-
+{% include image.html url="./Untitled%204.png" link=true alt="Untitled" %}{: .align-center}
+{% include image.html url="./Untitled%205.png" link=true alt="Untitled" %}{: .align-center}
 ### Getting the most out of Intellisense
 
 VSCode uses Pylance, a wrapper of Pyright. This is a really good Python3 intellisense engine, fast, flexible, and really smart. Yet, as we know, python is duck typed. Variables could be anything, and could change at anytime. This makes pylance’s job incredibly hard, and so we need to give it some help so it can help us.
@@ -173,8 +166,7 @@ In your settings.json you can set pylance to do typechecking.
 
 Now if we make a simple mistake:
 
-![Untitled](./Untitled%206.png)
-
+{% include image.html url="./Untitled%206.png" link=true alt="Untitled" %}{: .align-center}
 This is super cool! 
 
 ### Using cast to fix type hint errors
@@ -184,7 +176,7 @@ This section is out of date and unneeded with UE 5.1. Click here to expand.
 
 <div markdown="1" class="collapsed-content">
 
-🥳 UE5 Main has proper type hints! Soon all these workarounds won’t be necessary.
+🥳 UE5.1 has proper type hints! All these workarounds aren't necessary anymore!
 [https://github.com/EpicGames/UnrealEngine/commit/ec3db1b24ccac9ac92564001d30dd7136d7963ac](https://github.com/EpicGames/UnrealEngine/commit/ec3db1b24ccac9ac92564001d30dd7136d7963ac)
 {: .notice--success }
 
@@ -206,8 +198,7 @@ The docstrings for the stub file say what each function should return, so we can
 
 But why go through this effort? Well if we do this, then we know what each variable is, and if we know what each variable is then pylance can tell us what each variable can do.
 
-{% include video.html video="./intellisense.mp4" %}
-
+{% include video.html video="./intellisense.mp4" %}{: .align-center}
 Say goodbye to going to the reference documentation, say hello to the world at your fingertips. 😊
 
 #### Understanding `cast`
@@ -258,8 +249,7 @@ def get_first_point_light_color() -> unreal.LinearColor:
 
 Now if the `actor` isn’t actually a point light, then the `light` variable will be `None`
 
-![Untitled](./Untitled%207.png)
-
+{% include image.html url="./Untitled%207.png" link=true alt="Untitled" %}{: .align-center}
 </div>
 
 ## Doing cool unreal things with python
@@ -282,8 +272,7 @@ with unreal.ScopedSlowTask(total_frames, text_label) as slow_task:
 		slow_task.enter_progress_frame(1)
 ```
 
-![Untitled](./Untitled%208.png)
-
+{% include image.html url="./Untitled%208.png" link=true alt="Untitled" %}{: .align-center}
 ### Doing *stuff* async
 
 To work asynchronously in unreal, the easiest way is to attach yourself to the slate tick.
@@ -353,6 +342,5 @@ It has instructions on how to use it in the file, and it totally works.
 '''
 ```
 
-![Untitled](./Untitled%209.png)
-
+{% include image.html url="./Untitled%209.png" link=true alt="Untitled" %}{: .align-center}
 It is magical.
