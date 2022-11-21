@@ -7,7 +7,7 @@
 
   <div class="page-image">
     {% if page.image.responsive %}
-      {% picture default "{{ page_image }}" --img class="entry-feature-image u-photo" --alt "{{ page.title }}" %}
+      {% picture lazy "{{ page_image }}" --img class="entry-feature-image u-photo" --alt "{{ page.title }}" %}
     {% else %}
       <img src="{{ page_image }}" class="entry-feature-image u-photo" alt="{{ page.title }}">
     {% endif %}
