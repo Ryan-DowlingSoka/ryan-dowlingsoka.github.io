@@ -6,10 +6,14 @@
   {% assign page_image = page_image | escape %}
 
   <div class="page-image">
-    {% if page.image.responsive %}
-      {% picture lazy "{{ page_image }}" --img class="entry-feature-image u-photo" --alt "{{ page.title }}" %}
+    {% if page.image.video and page.image.video != "" %}
+        {% include video.html url=page.image.video controls=false class="entry-feature-image u-photo" %}
     {% else %}
-      <img src="{{ page_image }}" class="entry-feature-image u-photo" alt="{{ page.title }}">
+      {% if page.image.responsive %}
+        {% picture lazy "{{ page_image }}" --img class="entry-feature-image u-photo" --alt "{{ page.title }}" %}
+      {% else %}
+        <img src="{{ page_image }}" class="entry-feature-image u-photo" alt="{{ page.title }}">
+      {% endif %}
     {% endif %}
     {% if page.image.caption %}
       <div class="page-image-caption">{{ page.image.caption | markdownify }}</div>

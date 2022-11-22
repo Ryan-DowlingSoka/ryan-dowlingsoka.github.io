@@ -281,7 +281,7 @@ Here we remove the element from the list, and re-add it with the **Add Expressio
 
 But since the list might scroll quickly, I wanted to do two things. I wanted the element to flash a color, so it can be easily found, and in the case where the user pressed **Enter** I wanted to restore focus to the current field.
 
-Importantly doing this constructs a new widget, so we lose the direct link to that widget. To get it back I put a short delay so that the element can be scrolled into view, and then loop over the currently displayed entry widgets and find the selected one. 
+Importantly doing this constructs a new widget, so we lose the direct link to that widget. To get it back I put a short delay so that the element can be scrolled into view, and then loop over the currently displayed entry widgets and find the selected one.
 
 {% include image.html url="./Untitled%208.png" alt="Untitled" link=true %}{: .align-center}
 

@@ -8,6 +8,22 @@
     {% assign width = include.width %}
 {% endif %}
 
-<video width="{{width}}" loop autoplay controls muted>
+{% unless include.controls and include.controls == false %}
+    {% assign controls = "controls" %}
+{% endunless %}
+
+{% unless include.autoplay and include.autoplay == false %}
+    {% assign autoplay = "autoplay" %}
+{% endunless %}
+
+{% unless include.loop and include.loop == false %}
+    {% assign loop = "loop" %}
+{% endunless %}
+
+{% unless include.muted and include.muted == false %}
+    {% assign muted = "muted" %}
+{% endunless %}
+
+<video width="{{width}}" {{loop}} {{autoplay}} {{controls}} {{muted}}>
     <source src="{{src}}" type="video/mp4">
 </video>
