@@ -1,3 +1,13 @@
-<video width="100%" loop autoplay controls muted>
-    <source src="{{include.video}}" type="video/mp4">
+{% assign src = include.url %}
+{% if include.video and include.video != "" %}
+    {% assign src = include.video %}
+{% endif %}
+
+{% assign width = "100%" %}
+{% if include.width and include.width != "" %}
+    {% assign width = include.width %}
+{% endif %}
+
+<video width="{{width}}" loop autoplay controls muted>
+    <source src="{{src}}" type="video/mp4">
 </video>

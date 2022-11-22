@@ -256,7 +256,7 @@ This makes this function work for all of the different axis which will be very i
 
 What this function is doing, however, is taking the XYZ direction in tangent space of the normal, and is swizzle transforming it into their respective world axes. Golus’s post goes into it much better than me, so again, go there.
 
-{% include image.html url="./transformed_normals.gif" alt="Untitled" responsive=false %}
+{% include video.html video="./transformed_normals.mp4" width="892px" %}{: .align-center}
 
 It can be hard to show why this is so important. Without this node the normals are transformed by their triangle face’s tangent space, this creates seams, but more importantly it makes the normals just wrong. In the above gif there is a light on the left side of the screen. Without the transform node the shadows are all over the place and there is a huge seam at the UV shell borders.
 

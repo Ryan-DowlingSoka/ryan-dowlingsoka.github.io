@@ -271,7 +271,7 @@ I might do that later.
 
 There are two times where the expression list might change rapidly and the tool highlights the target node.
 
-{% include image.html url="./mph.parameter_panel.main.gif" alt="mph.parameter_panel.main.gif" responsive=false %}{: .align-center}
+{% include video.html url="./mph.parameter_panel.main.mp4" width="1000px" %}{: .align-center}
 
 The first time is when the list is resorted. When the Group, Name or Sort Priority field changes I run an Update Sort Location blueprint node.
 
@@ -291,7 +291,7 @@ With it found we flash the highlight (play a quick animation) and set the keyboa
 
 I do a similar thing from the function list. In the function list I list all material expressions, and when you click on one of the expressions it
 
-{% include image.html url="./mph.function_list.gif" alt="mph.function_list.gif" responsive=false %}{: .align-center}
+{% include video.html url="./mph.function_list.mp4" width="1006px" %}{: .align-center}
 
 The only difference here, is that with the function list, I’m not using the selected item, instead I am looping over all the expressions items to find the one with the matching Material Expression. I scroll that one into view, delay, and then play its highlight.
 
@@ -333,9 +333,9 @@ I wanted the filter bar to be a capsule like the search bar in the content brows
 
 My default in the Multiline Editable Text Box, the Enter key adds another line. Ctrl+Enter, Shift+Enter all don’t change a thing. The widget class has a slate option to allow a modifier key for a new line, but this isn’t exposed to UMG.
 
-{% include image.html url="./mph.parameter_list.multiline.gif" alt="mph.parameter_list.multiline.gif" responsive=false link="./mph.parameter_list.multiline.gif" %}{: .align-center}
+{% include video.html url="./mph.parameter_list.multiline.mp4" width="602px" %}{: .align-center}
 
-I solved this by creating my own subclass. In my MultiLineEditableTextBox I added a **bShiftEnterForNewLine** property and added this to the **ModiferKeyForNewLine** slate property. 
+I solved this by creating my own subclass. In my MultiLineEditableTextBox I added a **bShiftEnterForNewLine** property and added this to the **ModiferKeyForNewLine** slate property.
 
 ```cpp
 TSharedRef<SWidget> URedMultiLineEditableTextBox::RebuildWidget()

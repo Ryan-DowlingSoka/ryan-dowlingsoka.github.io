@@ -283,6 +283,10 @@ video {
   display: inline-block;
 }
 
+video {
+  max-width: 100%;
+}
+
 /**
  * Add the correct display in iOS 4-7.
  */
