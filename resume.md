@@ -20,7 +20,8 @@ categories: about
     padding: 0 0em 0 1em;
 ">
 
-{% include socials.md %}
+{% include socials.md %}  
+<a href="/assets/files/RyanDowlingSoka-Resume-2022.pdf">📃Resume-2022</a>
 
 </div>
 
