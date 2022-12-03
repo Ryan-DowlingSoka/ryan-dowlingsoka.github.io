@@ -5,6 +5,8 @@ image:
   responsive: true
   path: "/unreal/python-in-unreal/header.png"
   thumbnail: "/unreal/python-in-unreal/header.png"
+redirect_from:
+  - /Python-in-Unreal-d91456e10efc4fd396d7b66a56b03f02
 ---
 
 > Make the most out of using Python in Unreal Engine. Learn how to setup Auto-Complete, do asynchronous loops, handle slow tasks and other various tips.

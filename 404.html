@@ -23,3 +23,22 @@ layout: default
   <p><strong>Page not found T_T</strong></p>
   <p>The requested page could not be found.</p>
 </div>
+
+<script type="text/javascript">
+  function redirect_patterns(){
+    {%- assign pages = site.pages | where_exp: "item", "item.title" -%}
+    {%- for collection in site.collections -%}
+      {%- assign pages = pages | concat: site[collection.label] | where_exp: "item", "item.title" -%}
+    {%- endfor -%}
+    {%- for page in pages -%}
+      {%- if page.redirect_pattern and page.redirect_pattern != "" -%}
+        if ({{page.redirect_pattern}}.test(location.href)) {
+          window.location.href = "{{page.url}}";
+          return;
+        }
+      {%- endif -%}
+    {%- endfor -%}
+  }
+
+  redirect_patterns();
+</script>

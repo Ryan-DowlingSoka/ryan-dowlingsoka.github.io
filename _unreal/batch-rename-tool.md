@@ -6,6 +6,8 @@ image:
   path: "/unreal/batch-rename-tool/BatchRename_Reel.gif"
   thumbnail: "/unreal/batch-rename-tool/BatchRename_Reel.gif"
   video: "/unreal/batch-rename-tool/BatchRename_Reel.mp4"
+redirect_from:
+  - /Batch-Rename-Editor-Widget-Tutorial-a563eda059c9405bb3123954e036f58a
 ---
 
 > Learn how to create a mass actor/asset batch rename tool using Editor Utility Widgets. 

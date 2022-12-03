@@ -39,6 +39,7 @@ disqus:
   shortname: # Disqus shortname, e.g. "my_disqus_shortname"
 twitter:
   username: RyanDowlingSoka # site's Twitter username, e.g. "mmistakes"
+# url: "https://ryandowlingsoka.com"
 
 # Liquid
 liquid:
@@ -77,6 +78,9 @@ collections:
   unreal:
     output: true
     permalink: /:collection/:path/
+  portfolio:
+    output: true
+    permalink: /:collection/:path/
 
 plugins:
   - jekyll-seo-tag
@@ -84,6 +88,7 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll_picture_tag
+  - jekyll-redirect-from
 
 # Front Matter Defaults
 defaults:
@@ -98,6 +103,12 @@ defaults:
   - scope:
       path: "_unreal"
       type: unreal
+    values:
+      layout: page
+  # Portfolio defaults
+  - scope:
+      path: "_portfolio"
+      type: portfolio
     values:
       layout: page
 
@@ -117,7 +128,18 @@ footer_links:
   - title: Feed
     url: atom.xml
     icon: fas fa-rss-square
+  - title: Twitter
+    url: https://twitter.com/RyanDowlingSoka
+    icon: fab fa-twitter-square
+  - title: Linked.In
+    url: https://www.linkedin.com/in/ryandowlingsoka/
+    icon: fab fa-linkedin
+  - title: GitHub
+    url: https://github.com/RyanDowlingSoka
+    icon: fab fa-github-square
+  - title: gamedev.place
+    url: https://mastodon.gamedev.place/@ryan_dowlingsoka
+    icon: fab fa-mastodon
 
 picture:
   ignore_missing_images: true
-  

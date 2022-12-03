@@ -72,6 +72,25 @@ a {
     -webkit-animation-name: initial;
     animation-name: initial;
   }
+
+  
+  img {
+    height: 32px;
+    width: 32px;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  @include breakpoint($large){
+    span:after{
+      content: attr(title);
+      padding:4px;
+    }
+  }
+
+  p {
+    margin:0px;
+  }
 }
 
 .masthead {

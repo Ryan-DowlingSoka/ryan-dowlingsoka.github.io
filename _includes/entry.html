@@ -9,6 +9,14 @@
 {% endif %}
 
 <article class="entry h-entry">
+  {% if site.read_time or entry.date %}
+    {% unless page.show_date == false %}
+      <div class="entry-meta">
+        {% if site.read_time %}{% include read-time.html %}{% endif %}
+        {% if entry.date %}{% include entry-date.html %}{% endif %}
+      </div>
+    {% endunless %}
+  {% endif %}
   <a href="{{ entry.url | relative_url }}" rel="bookmark">
     <header class="entry-header">
         <h3 class="entry-title p-name">
@@ -35,10 +43,4 @@
       {% endif %}
     </div>
   {% endunless %}
-  {% if site.read_time or entry.date %}
-    <footer class="entry-meta">
-      {% if site.read_time %}{% include read-time.html %}{% endif %}
-      {% if entry.date %}{% include entry-date.html %}{% endif %}
-    </footer>
-  {% endif %}
 </article>

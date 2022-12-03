@@ -3,6 +3,8 @@ layout: page
 title:  "Resume"
 date:   2022-11-10 21:34:51 -0800
 categories: about
+redirect_from: 
+  - /Resume-29313021603c462ea65df2e4ad7517de
 ---
 
 <div style="display:flex;flex-wrap:wrap;align-items: center;" markdown="1">
@@ -21,7 +23,7 @@ categories: about
 ">
 
 {% include socials.md %}  
-<a href="/assets/files/RyanDowlingSoka-Resume-2022.pdf">📃Resume-2022</a>
+<a href="/assets/files/RyanDowlingSoka-Resume-2022.pdf"><i class="fas fa-book" title="Twitter"></i> Resume-2022</a>
 
 </div>
 

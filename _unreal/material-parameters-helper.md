@@ -5,6 +5,8 @@ image:
   responsive: true
   path: "/unreal/material-parameters-helper/mph.header.png"
   thumbnail: "/unreal/material-parameters-helper/mph.header.png"
+redirect_from:
+  - /Material-Parameters-Helper-Odds-and-Ends-42352d29db0a452d95c5c4a0fa388e5e
 ---
 
 > A tool to help with managing massive amounts of material parameters across numerous nested material functions.

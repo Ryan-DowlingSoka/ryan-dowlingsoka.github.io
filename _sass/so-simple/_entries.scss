@@ -32,7 +32,7 @@
 }
 
 .entry-title {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.0rem;
   font-family: $title-font-family;
   font-weight: $entry-title-weight;
   font-style: italic;
@@ -40,7 +40,7 @@
   word-wrap: break-word; /* break long words that could overflow */
   position: absolute;
   display: inline-block;
-  padding: .5em .25em;
+  padding: .25em;
   a {
     text-decoration: none;
   }
@@ -66,9 +66,9 @@
   -ms-flex-order: -1;
   order: -1;
   width: 100%;
-  margin-bottom: 0.2rem;
+  //margin-bottom: 0.2rem;
   overflow: hidden;
-  border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 5px 5px;
   box-shadow: none;
 }
 
@@ -78,12 +78,19 @@
     font-family: $meta-font-family;
     font-style: italic;
     white-space: nowrap;
+    float:right;
   }
 
   .read-time + .entry-date::before {
     content: "\2022";
     padding: 0px 5px;
-  }
+  }    
+  position: absolute;
+  right: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 0px 0px 0px 5px;
+  font-size: 75%;
 }
 
 .entry-excerpt {
@@ -91,6 +98,7 @@
   blockquote {
     border-radius: 0px 0px 5px 5px;
   }
+  padding-top: 5px;
 }
 
 .entry-excerpt a,
@@ -142,10 +150,7 @@
   }
 
   .entry-meta {
-    -webkit-box-ordinal-group: 3;
-    -ms-flex-order: 2;
-    order: 2;
-    margin-bottom: 1em;
+    //margin-bottom: 1em;
     font-size: 0.75rem;
   }
 
@@ -157,74 +162,6 @@
     }
   }
 }
-
-/*
-   Entries Grid Layout
-   ========================================================================== */
-
-.entries-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
-  grid-row-gap: 1em;
-  grid-column-gap:2em;
-  grid-auto-rows: 500px;
-  opacity: 0%;
-  transition: opacity 300ms;
-
-  .entry {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    margin-bottom: 1em;
-  }
-
-  .entry-title {
-    @include fluid-type($min-vw, $max-vw, 18px, 24px);
-    -webkit-box-ordinal-group: 2;
-    -ms-flex-order: 1;
-    order: 1;
-  }
-
-  .entry-excerpt,
-  .entry-content {
-    -webkit-box-ordinal-group: 4;
-    -ms-flex-order: 3;
-    order: 3;
-
-    /* remove space after last child element */
-    > *:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  .entry-excerpt {
-    /* normalize font sizes */
-    > * {
-      font-size: 1rem;
-    }
-  }
-
-  .entry-meta {
-    -webkit-box-ordinal-group: 3;
-    -ms-flex-order: 2;
-    order: 2;
-    margin-bottom: 1em;
-    font-size: 0.75rem;
-  }
-
-  .more-link {
-    margin-top: -1em;
-
-    a {
-      text-decoration: none;
-    }
-  }
-}
-
 
 
 // Masonry
@@ -258,7 +195,7 @@
 
   .entry-col--2>.entry
   {
-    margin-right: 0em;
+    //margin-right: 0em;
   }
 
   @include breakpoint($medium)
@@ -300,11 +237,11 @@
   }
 
   .entry-meta {
-    -webkit-box-ordinal-group: 3;
-    -ms-flex-order: 2;
-    order: 2;
-    margin-bottom: 1em;
-    font-size: 0.75rem;
+    // -webkit-box-ordinal-group: 3;
+    // -ms-flex-order: 2;
+    // order: 2;
+    // margin-bottom: 0em;
+    // font-size: 0.75rem;
   }
 
   .more-link {

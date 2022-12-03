@@ -5,6 +5,8 @@ image:
   responsive: true
   path: "/unreal/hanging-vertex-animation/hanging-vertex-animation.png"
   thumbnail: "/unreal/hanging-vertex-animation/hanging-vertex-animation.png"
+redirect_from:
+  - /Hanging-Vertex-Animation-436c3ff5d44f4450af97f806de1416f1
 ---
 
 > Learn how to use vertex animation to make pendulum motion for hanging environmental props or vegetation.

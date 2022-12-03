@@ -5,6 +5,8 @@ image:
   responsive: true
   path: "/unreal/triplanar-dither-biplanar/header.png"
   thumbnail: "/unreal/triplanar-dither-biplanar/header.png"
+redirect_from:
+  - /Triplanar-Dithered-Triplanar-and-Biplanar-Mapping-in-Unreal-7844313e458e4316aca1e40e6394109e
 ---
 
 > Learn how to setup Triplanar mapping in unreal, and some optimizations to make it run faster.

@@ -3,6 +3,8 @@ layout: home
 limit: 10
 show_excerpts: true
 entries_layout: list
+redirect_from:
+  - /Ryan-DowlingSoka-808f52788ead40478ca3030376d135c8
 ---
 
 # Hello there!
@@ -23,7 +25,12 @@ If you've found me to learn about some stuff see below!
     title="\"Get Relief!\" a Relaxed Cone Step Map Generator"
     description="Convert any flat texture to one with depth, all you need is a heightmap, the tool will take care of the rest." %}
 
-**Support:** [support@dowlingsoka.com](mailto:support@dowlingsoka.com)
+{% include bookmark.html
+    url="https://github.com/Ryan-DowlingSoka/RedTechArtTools"
+    author="Ryan DowlingSoka | Github"
+    image="/assets/images/bookmarks/mph.activate_plugin.png"
+    title="Red Tech Art Tools"
+    description="A variety of useful tools for tech-art in Unreal Engine. Shared with the MIT license." %}
 
 <br/>
 
