@@ -13,7 +13,7 @@ redirect_from:
     flex: 1 1 35em;
 ">
 
-> Experienced Technical Artist with a demonstrated history of working in the AAA video game industry. Skilled in Unreal Engine 4, Unity, Houdini, C#, C++, Python, and HLSL/GLSL. Strong arts and design professional, focused on engine tooling, rendering techniques, material and shader work, and procedural content.  
+> Experienced Technical Artist with a demonstrated history of working in the AAA video game industry. Skilled in Unreal Engine 4 and 5, Unity, Frostbite, Houdini, C#, C++, Python, and HLSL/GLSL. Strong arts and design professional, focused on engine tooling, rendering techniques, material and shader work, and procedural content.  
 
 </div>
 
