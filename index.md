@@ -7,13 +7,28 @@ redirect_from:
   - /Ryan-DowlingSoka-808f52788ead40478ca3030376d135c8
 ---
 
-# Hello there!
+# Welcome
 
-I'm Ryan a technical artist whose been around here for a while. I'm mostly here to help others, and try to make some great games at the same time.
+<div style="display:flex;flex-wrap:wrap;align-items: center;" markdown="1">
 
-If you've found me for work reasons my [resume](./resume/) is right up there.
+<div markdown="1" style="
+    flex: 1 1 35em;
+">
 
-If you've found me to learn about some stuff see below!
+> You've found my personal website.  
+> Check out my [<i class="fas fa-book"></i> resume](/resume), blog posts on various [<i class="fas fa-gamepad"></i> unreal engine](/unreal) topics, or my [<i class="fas fa-images"></i> portfolio](/portfolio).  
+
+</div>
+
+<div markdown="1" style="
+    flex: 0 0 15em;
+    padding: 0 0em 0 1em;
+">
+
+{% include socials.md %}  
+
+</div>
+</div>
 
 ---
 # Tools
