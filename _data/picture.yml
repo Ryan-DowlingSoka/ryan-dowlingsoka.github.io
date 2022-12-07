@@ -90,6 +90,7 @@ presets:
   lazy:
     markup: data_auto
     formats: [webp, original]
+    widths: [200, 400, 800, 1200, 1600, 2000, 2400, 3000] # Image widths, in pixels.
     noscript: true # add a fallback image inside a <noscript> tag.
     dimension_attributes: true
     attributes:
