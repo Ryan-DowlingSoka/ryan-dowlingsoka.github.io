@@ -4,6 +4,7 @@ date: 2022-06-13
 image: 
   responsive: true
   path: "/unreal/python-in-unreal/header.png"
+  #header: "/unreal/python-in-unreal/header.png"
   thumbnail: "/unreal/python-in-unreal/header.png"
 redirect_from:
   - /Python-in-Unreal-d91456e10efc4fd396d7b66a56b03f02

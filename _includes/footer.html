@@ -9,7 +9,7 @@
         {%- else -%}
           {%- assign url = footer_link.url | relative_url -%}
         {%- endif -%}
-        <a class="social-icon" href="{{ url }}"><i class="{{ footer_link.icon | default: 'fas fa-link' }} fa-2x" title="{{ footer_link.title }}">{{ footer_link.fallback }}</i></a>
+        <a class="social-icon" href="{{ url }}" aria-label="{{footer_link.title}}">{%- include icon.html icon=footer_link.icon -%}</a>
       {%- endfor -%}
     </div>
   {%- endif -%}
@@ -18,7 +18,7 @@
     {% if site.copyright %}
       {{ site.copyright | markdownify }}
     {% else %}
-      <p>&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. {{ site.data.text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/mmistakes/so-simple-theme" rel="nofollow">So Simple</a>. <br/> This site's source code is available on <a target="_blank" href="https://github.com/Ryan-DowlingSoka/ryan-dowlingsoka.github.io"><i class="fab fa-github"></i> github</a>.
+      <p>&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. {{ site.data.text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/mmistakes/so-simple-theme" rel="nofollow">So Simple</a>. <br/> This site's source code is available on <a target="_blank" href="https://github.com/Ryan-DowlingSoka/ryan-dowlingsoka.github.io">{{ site.data.icons.github }} github</a>.
       </p>
     {% endif %}
   </div>

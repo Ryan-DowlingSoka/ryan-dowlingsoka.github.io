@@ -4,6 +4,7 @@ date: 2021-03-10
 image: 
   responsive: true
   path: "/unreal/hanging-vertex-animation/hanging-vertex-animation.png"
+  #header: "/unreal/hanging-vertex-animation/hanging-vertex-animation.png"
   thumbnail: "/unreal/hanging-vertex-animation/hanging-vertex-animation.png"
 redirect_from:
   - /Hanging-Vertex-Animation-436c3ff5d44f4450af97f806de1416f1

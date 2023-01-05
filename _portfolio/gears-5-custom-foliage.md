@@ -3,7 +3,7 @@ title: "Gears 5: Custom Foliage Materials"
 date: 2022-01-25
 image:
   responsive: true
-  path: "/portfolio/gears-5-custom-foliage/header.png"
+  #header: "/portfolio/gears-5-custom-foliage/header.png"
   thumbnail: "/portfolio/gears-5-custom-foliage/header.png"
 redirect_from:
   - /Gears-5-Custom-Foliage-Materials-19e91e90f2a343e29413950a06d91b49

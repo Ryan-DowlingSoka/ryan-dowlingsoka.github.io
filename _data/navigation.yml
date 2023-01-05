@@ -1,12 +1,16 @@
 # Sample site navigation bar links
 
-- title: '<i class="fas fa-house-user" title="Home"></i> Home'
+- title: 'Home'
+  icon: 'home'
   url: /
-- title: '<i class="fa-solid fa-book" title="Resume"></i> Resume'
+- title: 'Resume'
+  icon: 'resume'
   url: /resume/
-- title: '<i class="fa-solid fa-gamepad" title="Unreal Engine"></i> Unreal'
+- title: 'Unreal'
+  icon: 'unreal'
   url: /unreal/
-- title: '<i class="fa-solid fa-images" title="Portfolio"></i> Portfolio'
+- title: 'Portfolio'
+  icon: 'portfolio'
   url: /portfolio/
 
 # - title: Posts

@@ -4,6 +4,7 @@ date: 2021-03-22
 image:
   responsive: true
   path: "/portfolio/gears-5-predator/header.png"
+  #header: "/portfolio/gears-5-predator/header.png"
   thumbnail: "/portfolio/gears-5-predator/header.png"
 redirect_from:
   - /Gears-5-Hivebusters-Predator-Hummingbird-Wing-Effect-7f244419e62b4c36b6bf00f1ffddf4ca

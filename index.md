@@ -16,7 +16,7 @@ redirect_from:
 ">
 
 > You've found my personal website.  
-> Check out my [<i class="fas fa-book"></i> resume](/resume), blog posts on various [<i class="fas fa-gamepad"></i> unreal engine](/unreal) topics, or my [<i class="fas fa-images"></i> portfolio](/portfolio).  
+> Check out my [{{ site.data.icons.resume }} resume](/resume), blog posts on various [{{ site.data.icons.unreal }} unreal engine](/unreal) topics, or my [{{ site.data.icons.portfolio }} portfolio](/portfolio).  
 
 </div>
 

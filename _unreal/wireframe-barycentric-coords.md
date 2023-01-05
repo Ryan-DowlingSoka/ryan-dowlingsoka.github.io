@@ -4,6 +4,7 @@ date: 2022-08-26
 image:
   responsive: true
   path: "/unreal/wireframe-barycentric-coords/barycentric-header.png"
+  #header: "/unreal/wireframe-barycentric-coords/barycentric-header.png"
   thumbnail: "/unreal/wireframe-barycentric-coords/barycentric-header.png"
 redirect_from:
   - /Custom-Wireframe-Material-using-Geometry-Scripting-for-Barycentric-UVs-6ef76c1949a84e1193ebabad535b4089

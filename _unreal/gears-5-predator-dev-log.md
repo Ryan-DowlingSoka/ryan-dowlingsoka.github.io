@@ -4,6 +4,7 @@ date: 2021-03-12
 image: 
   responsive: true
   path: "/unreal/gears-5-predator-dev-log/header.png"
+  #header: "/unreal/gears-5-predator-dev-log/header.png"
   thumbnail: "/unreal/gears-5-predator-dev-log/header.png"
 redirect_from:
   - /Gears-5-Hivebusters-Predator-Hummingbird-Wing-Effect-7f244419e62b4c36b6bf00f1ffddf4ca

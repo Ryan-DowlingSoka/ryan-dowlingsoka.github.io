@@ -4,6 +4,7 @@ date: 2022-01-25
 image:
   responsive: true
   path: "/portfolio/gears-5-ice-shaders/ryan-dowlingsoka-ryandow-volumetric-interiorlighting.jpg"
+  #header: "/portfolio/gears-5-ice-shaders/ryan-dowlingsoka-ryandow-volumetric-interiorlighting.jpg"
   thumbnail: "/portfolio/gears-5-ice-shaders/ryan-dowlingsoka-ryandow-volumetric-interiorlighting.jpg"
 redirect_from:
   - /Gears-5-Ice-Shader-Volumetric-Lighting-3cfe2186f2e3485988f5b8d3e5fae196

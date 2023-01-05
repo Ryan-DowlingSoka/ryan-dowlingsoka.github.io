@@ -23,7 +23,7 @@ redirect_from:
 ">
 
 {% include socials.md %}  
-<a href="/assets/files/RyanDowlingSoka-Resume-2022.pdf"><i class="fas fa-book" title="Twitter"></i> Resume-2022</a>
+<a href="/assets/files/RyanDowlingSoka-Resume-2022.pdf">{{ site.data.icons.resume }}</i> Resume-2022</a>
 
 </div>
 
