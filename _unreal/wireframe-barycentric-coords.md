@@ -3,7 +3,7 @@ title: "Custom Wireframe Material using Geometry Scripting for Barycentric UVs"
 date: 2022-08-26
 image:
   responsive: true
-  path: "/unreal/wireframe-barycentric-coords/barycentric-header.png"
+  path: "/unreal/wireframe-barycentric-coords/barycentric-header.webp"
   #header: "/unreal/wireframe-barycentric-coords/barycentric-header.png"
   thumbnail: "/unreal/wireframe-barycentric-coords/barycentric-header.png"
 redirect_from:
