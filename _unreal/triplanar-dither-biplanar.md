@@ -3,7 +3,7 @@ title: "Triplanar, Dithered Triplanar, and Biplanar Mapping in Unreal"
 date: 2022-11-08
 image: 
   responsive: true
-  path: "/unreal/triplanar-dither-biplanar/header.png"
+  path: "/unreal/triplanar-dither-biplanar/header-800.webp"
   #header: "/unreal/triplanar-dither-biplanar/header.png"
   thumbnail: "/unreal/triplanar-dither-biplanar/header.png"
 redirect_from:
