@@ -105,7 +105,7 @@ I've made an example (working!) github repository for a fully python solution th
 #### Benefits of using Python
 
 * For python trained technical artists, it might be extremely familiar working in python.
-* Iteration time is quick, especially if you use a good IDE like VSCode or PyCharm [Python IDE tips here!](/unreal/python-in-unreal.html)
+* Iteration time is quick, especially if you use a good IDE like VSCode or PyCharm [Python IDE tips here!](/unreal/python-in-unreal/)
 * Some of the easiest to use string manipulation tools.
 * Keeps things out of accidentally shipping code automatically, and really lets the Tech Art team safely own these systems.
 
