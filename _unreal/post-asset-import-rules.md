@@ -1,9 +1,13 @@
 ---
 title: "#notGDC-2023: Unreal Post Asset Import Actions"
 date: 2023-03-20
+image:
+    responsive: true
+    path: "/unreal/post-asset-import-rules/header.jpg"
+    thumbnail: "/unreal/post-asset-import-rules/header.jpg"
 ---
 
-> Three different ways to improve what happens after you import assets into your project, python, cpp, and blueprint approaches.
+> Three different ways to improve what happens after you import assets into your project. Python, C++, and Blueprint approaches.
 
 {% include toc %}
 
