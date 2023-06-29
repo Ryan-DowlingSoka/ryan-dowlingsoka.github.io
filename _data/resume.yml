@@ -21,10 +21,15 @@ games:
     image: "resume-gears-of-war-ultimate-edition.png"
 
 jobs:
+  - title: "Principal Technical Art Engineer"
+    studio: "???"
+    location: "Vancouver"
+    dates: "July 2023 - Present"
+    description: "???"
   - title: "Technical Art Supervisor"
     studio: "Electronic Arts - Bioware"
     location: "Vancouver"
-    dates: "April 2022 - Present"
+    dates: "April 2022 - June 2023"
     description: "Technical Art Supervisor at Bioware. Focused on engine, shaders, materials, 
     studio transition to Unreal Engine 5, pipelines.
     Individual contributer on game projects and a focus on studio learning."
