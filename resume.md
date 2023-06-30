@@ -13,7 +13,7 @@ redirect_from:
     flex: 1 1 35em;
 ">
 
-> Experienced Technical Artist with a demonstrated history of working in the AAA video game industry. Skilled in Unreal Engine 4 and 5, Unity, Frostbite, Houdini, C#, C++, Python, and HLSL/GLSL. Strong arts and design professional, focused on engine tooling, rendering techniques, material and shader work, and procedural content.  
+> Experienced Engineer with a demonstrated history of working in the AAA video game industry. Focused on the Technical Art aspects of Game design while being skilled in Unreal Engine 4, Unity, Houdini, C#, C++, Python, and HLSL/GLSL. Strong arts and design professional, focused on engine tooling, rendering techniques, material and shader work, and procedural content.  
 
 </div>
 
@@ -23,7 +23,7 @@ redirect_from:
 ">
 
 {% include socials.md %}  
-<a href="/assets/files/RyanDowlingSoka-Resume-2022.pdf">{{ site.data.icons.resume }} Resume-2022</a>
+<a href="/assets/files/RyanDowlingSoka-Resume-2023.pdf">{{ site.data.icons.resume }} Resume-2023</a>
 
 </div>
 
