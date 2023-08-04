@@ -18,7 +18,7 @@
 skin: "/assets/css/skins/dark.css"
 locale: en-US
 title: "Ryan DowlingSoka"
-description: "Technical Art Engineer @ ???"
+description: "Technical Art Engineer @ Odyssey Interactive"
 baseurl: # the subpath of your site, e.g. "/blog"
 url: "https://ryandowlingsoka.com" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 logo: # path of site logo, e.g. "/images/logo.png"
