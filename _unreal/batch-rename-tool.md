@@ -28,7 +28,7 @@ It has a few goals:
 
 ### Source Files:
 
-[BlueprintWidgetsV01.zip](./BlueprintWidgetsV01.zip)
+[Available as part of RedTechArtTools on Github](https://github.com/Ryan-DowlingSoka/RedTechArtTools/tree/main/Content/EditorWidgets/BatchRename)
 
 # Episode 1 - General Layout
 
