@@ -234,7 +234,7 @@ Here we now use the Bend Stiffness value to offset where the pivot point actuall
 
 Thanks for reading this far! Hopefully there is some useful information in here. If you want to take a look I've packaged the example above up with comments and things and stuff, and who knows: it might even be helpful.
 
-# **[Get the materials here.](https://drive.google.com/file/d/17ceSyxfcHMPfH3S_Kyb4V6MkRHq1934h/view?usp=sharing)**
+# **[Get the materials here.](./HangingVertexAnimationTutorial.zip)**
 
 If you have thoughts, opinions, or ideas you want to see explored, hit me up on the socials:
 
