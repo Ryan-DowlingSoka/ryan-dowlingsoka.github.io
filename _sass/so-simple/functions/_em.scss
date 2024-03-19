@@ -2,6 +2,8 @@
    EM conversion
    ========================================================================== */
 
-   @function em($target, $context: $doc-font-size) {
-    @return ($target / $context) * 1em;
+   @use "sass:math";
+
+@function em($target, $context: $doc-font-size) {
+    @return math.div($target, $context) * 1em;
   }
