@@ -1,6 +1,6 @@
 ---
 title: "Python in Unreal Tips"
-date: 2022-06-13
+date: 2024-03-18
 image: 
   responsive: true
   path: "/unreal/python-in-unreal/header.png"
@@ -64,7 +64,7 @@ E:\epic\Projects\LyraStarterGame\Plugins\RyanDowlingSoka\RedTechArtTools\.vscode
 I then store all the actual settings in the settings.json in this folder.
 
 ```json
-E:\epic\Projects\LyraStarterGame\Plugins\RyanDowlingSoka\RedTechArtTools\.vscode\settings.json
+E:\epic\Projects\LyraStarterGame\Plugins\RedTechArtTools\.vscode\settings.json
 {
 	"python.analysis.extraPaths": ["..\\..\\..\\Intermediate\\PythonStub"],
 	"python.autoComplete.extraPaths": ["..\\..\\..\\Intermediate\\PythonStub"],
@@ -122,7 +122,7 @@ We can then setup our Black to better fit our desires. Here is my configuration 
 
 ```json
 "python.formatting.provider": "black",
-	"python.formatting.blackArgs": ["--line-length", "119"],
+    "black-formatter.args": ["--line-length", "119"],
 	"[python]" : {
 		"editor.defaultFormatter": null,
 		"editor.insertSpaces": true,
@@ -216,7 +216,7 @@ Luckily, we can make our own unreal_cast which does what we want.
 #### Making an Unreal style `unreal_cast`
 {: .no_toc}
 
-I recommend making a module named `Helpers` or something similar in your project. Here is what mine looks like:
+I recommend making a module named `helpers` or something similar in your project. Here is what mine looks like:
 
 ```python
 ## Copyright (c) 2022 Ryan DowlingSoka - MIT License - See LICENSE file for more.
@@ -329,14 +329,14 @@ It has instructions on how to use it in the file, and it totally works.
 	
 	VS Code "launch.json" Configuration:
 		{
-			"name": "UnrealEngine Python",
-			"type": "python",
-			"request": "attach",
-			"connect": {
-				"host": "localhost",
-				"port": 5678
-			},
-			"redirectOutput": true
+            "name": "UnrealEngine Python",
+            "type": "debugpy",
+            "request": "attach",
+            "connect": {
+                "host": "localhost",
+                "port": 5678,
+            },
+            "redirectOutput": true
 		}
 	
 	Notes:
